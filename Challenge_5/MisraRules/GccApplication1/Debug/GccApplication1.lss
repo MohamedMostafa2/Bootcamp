@@ -1,0 +1,3015 @@
+
+GccApplication1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000022a  00800100  00001416  0000148a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00001416  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  000016b4  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000016e4  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000a0  00000000  00000000  00001724  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000b59  00000000  00000000  000017c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000008d0  00000000  00000000  0000231d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000995  00000000  00000000  00002bed  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000170  00000000  00000000  00003584  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000044b  00000000  00000000  000036f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000027f  00000000  00000000  00003b3f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000060  00000000  00000000  00003dbe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+       4:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+       8:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+       c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+      68:	11 24       	eor	r1, r1
+      6a:	1f be       	out	0x3f, r1	; 63
+      6c:	cf ef       	ldi	r28, 0xFF	; 255
+      6e:	d8 e0       	ldi	r29, 0x08	; 8
+      70:	de bf       	out	0x3e, r29	; 62
+      72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+      74:	13 e0       	ldi	r17, 0x03	; 3
+      76:	a0 e0       	ldi	r26, 0x00	; 0
+      78:	b1 e0       	ldi	r27, 0x01	; 1
+      7a:	e6 e1       	ldi	r30, 0x16	; 22
+      7c:	f4 e1       	ldi	r31, 0x14	; 20
+      7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+      80:	05 90       	lpm	r0, Z+
+      82:	0d 92       	st	X+, r0
+      84:	aa 32       	cpi	r26, 0x2A	; 42
+      86:	b1 07       	cpc	r27, r17
+      88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+      8a:	0e 94 b0 09 	call	0x1360	; 0x1360 <main>
+      8e:	0c 94 09 0a 	jmp	0x1412	; 0x1412 <_exit>
+
+00000092 <__bad_interrupt>:
+      92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000096 <mul2>:
+ * We do use mul2(int8_t a) but not mul(uint8_t a, uint8_t b)
+ * just in order to get a higher speed.
+ #define  mul2(x)  ((a&0x80) ? (((a<<1)^0x1b) : (a<<1)))
+ */
+static inline uint8_t mul2(uint8_t a);
+static inline uint8_t mul2(uint8_t a) {
+      96:	cf 93       	push	r28
+      98:	df 93       	push	r29
+      9a:	1f 92       	push	r1
+      9c:	cd b7       	in	r28, 0x3d	; 61
+      9e:	de b7       	in	r29, 0x3e	; 62
+      a0:	89 83       	std	Y+1, r24	; 0x01
+    if(a>=(uint8_t)128){
+      a2:	89 81       	ldd	r24, Y+1	; 0x01
+      a4:	88 23       	and	r24, r24
+      a6:	44 f4       	brge	.+16     	; 0xb8 <mul2+0x22>
+        a<<=(uint8_t)1;
+      a8:	89 81       	ldd	r24, Y+1	; 0x01
+      aa:	88 0f       	add	r24, r24
+      ac:	89 83       	std	Y+1, r24	; 0x01
+        a^=(uint8_t)27;
+      ae:	99 81       	ldd	r25, Y+1	; 0x01
+      b0:	8b e1       	ldi	r24, 0x1B	; 27
+      b2:	89 27       	eor	r24, r25
+      b4:	89 83       	std	Y+1, r24	; 0x01
+      b6:	03 c0       	rjmp	.+6      	; 0xbe <mul2+0x28>
+    }
+    else {
+       a<<= (uint8_t)1;
+      b8:	89 81       	ldd	r24, Y+1	; 0x01
+      ba:	88 0f       	add	r24, r24
+      bc:	89 83       	std	Y+1, r24	; 0x01
+    }
+    return a;
+      be:	89 81       	ldd	r24, Y+1	; 0x01
+}
+      c0:	0f 90       	pop	r0
+      c2:	df 91       	pop	r29
+      c4:	cf 91       	pop	r28
+      c6:	08 95       	ret
+
+000000c8 <inv_shift_rows>:
+ *  Row1: s1  s5  s9  s13   >>> 1 byte
+ *  Row2: s2  s6  s10 s14   >>> 2 bytes
+ *  Row3: s3  s7  s11 s15   >>> 3 bytes
+ */
+static void inv_shift_rows(uint8_t state[]);
+static void inv_shift_rows(uint8_t state[]) {
+      c8:	cf 93       	push	r28
+      ca:	df 93       	push	r29
+      cc:	00 d0       	rcall	.+0      	; 0xce <inv_shift_rows+0x6>
+      ce:	1f 92       	push	r1
+      d0:	cd b7       	in	r28, 0x3d	; 61
+      d2:	de b7       	in	r29, 0x3e	; 62
+      d4:	9b 83       	std	Y+3, r25	; 0x03
+      d6:	8a 83       	std	Y+2, r24	; 0x02
+    uint8_t temp;
+    /* row1*/
+    temp        = state[13];
+      d8:	8a 81       	ldd	r24, Y+2	; 0x02
+      da:	9b 81       	ldd	r25, Y+3	; 0x03
+      dc:	fc 01       	movw	r30, r24
+      de:	85 85       	ldd	r24, Z+13	; 0x0d
+      e0:	89 83       	std	Y+1, r24	; 0x01
+    state[13] = state[9];
+      e2:	8a 81       	ldd	r24, Y+2	; 0x02
+      e4:	9b 81       	ldd	r25, Y+3	; 0x03
+      e6:	0d 96       	adiw	r24, 0x0d	; 13
+      e8:	2a 81       	ldd	r18, Y+2	; 0x02
+      ea:	3b 81       	ldd	r19, Y+3	; 0x03
+      ec:	f9 01       	movw	r30, r18
+      ee:	21 85       	ldd	r18, Z+9	; 0x09
+      f0:	fc 01       	movw	r30, r24
+      f2:	20 83       	st	Z, r18
+    state[9]  = state[5];
+      f4:	8a 81       	ldd	r24, Y+2	; 0x02
+      f6:	9b 81       	ldd	r25, Y+3	; 0x03
+      f8:	09 96       	adiw	r24, 0x09	; 9
+      fa:	2a 81       	ldd	r18, Y+2	; 0x02
+      fc:	3b 81       	ldd	r19, Y+3	; 0x03
+      fe:	f9 01       	movw	r30, r18
+     100:	25 81       	ldd	r18, Z+5	; 0x05
+     102:	fc 01       	movw	r30, r24
+     104:	20 83       	st	Z, r18
+    state[5]  = state[1];
+     106:	8a 81       	ldd	r24, Y+2	; 0x02
+     108:	9b 81       	ldd	r25, Y+3	; 0x03
+     10a:	05 96       	adiw	r24, 0x05	; 5
+     10c:	2a 81       	ldd	r18, Y+2	; 0x02
+     10e:	3b 81       	ldd	r19, Y+3	; 0x03
+     110:	f9 01       	movw	r30, r18
+     112:	21 81       	ldd	r18, Z+1	; 0x01
+     114:	fc 01       	movw	r30, r24
+     116:	20 83       	st	Z, r18
+    state[1]  = temp;
+     118:	8a 81       	ldd	r24, Y+2	; 0x02
+     11a:	9b 81       	ldd	r25, Y+3	; 0x03
+     11c:	01 96       	adiw	r24, 0x01	; 1
+     11e:	29 81       	ldd	r18, Y+1	; 0x01
+     120:	fc 01       	movw	r30, r24
+     122:	20 83       	st	Z, r18
+    /* row2*/
+    temp        = state[14];
+     124:	8a 81       	ldd	r24, Y+2	; 0x02
+     126:	9b 81       	ldd	r25, Y+3	; 0x03
+     128:	fc 01       	movw	r30, r24
+     12a:	86 85       	ldd	r24, Z+14	; 0x0e
+     12c:	89 83       	std	Y+1, r24	; 0x01
+    state[14] = state[6];
+     12e:	8a 81       	ldd	r24, Y+2	; 0x02
+     130:	9b 81       	ldd	r25, Y+3	; 0x03
+     132:	0e 96       	adiw	r24, 0x0e	; 14
+     134:	2a 81       	ldd	r18, Y+2	; 0x02
+     136:	3b 81       	ldd	r19, Y+3	; 0x03
+     138:	f9 01       	movw	r30, r18
+     13a:	26 81       	ldd	r18, Z+6	; 0x06
+     13c:	fc 01       	movw	r30, r24
+     13e:	20 83       	st	Z, r18
+    state[6]  = temp;
+     140:	8a 81       	ldd	r24, Y+2	; 0x02
+     142:	9b 81       	ldd	r25, Y+3	; 0x03
+     144:	06 96       	adiw	r24, 0x06	; 6
+     146:	29 81       	ldd	r18, Y+1	; 0x01
+     148:	fc 01       	movw	r30, r24
+     14a:	20 83       	st	Z, r18
+    temp        = state[10];
+     14c:	8a 81       	ldd	r24, Y+2	; 0x02
+     14e:	9b 81       	ldd	r25, Y+3	; 0x03
+     150:	fc 01       	movw	r30, r24
+     152:	82 85       	ldd	r24, Z+10	; 0x0a
+     154:	89 83       	std	Y+1, r24	; 0x01
+    state[10] = state[2];
+     156:	8a 81       	ldd	r24, Y+2	; 0x02
+     158:	9b 81       	ldd	r25, Y+3	; 0x03
+     15a:	0a 96       	adiw	r24, 0x0a	; 10
+     15c:	2a 81       	ldd	r18, Y+2	; 0x02
+     15e:	3b 81       	ldd	r19, Y+3	; 0x03
+     160:	f9 01       	movw	r30, r18
+     162:	22 81       	ldd	r18, Z+2	; 0x02
+     164:	fc 01       	movw	r30, r24
+     166:	20 83       	st	Z, r18
+    state[2]  = temp;
+     168:	8a 81       	ldd	r24, Y+2	; 0x02
+     16a:	9b 81       	ldd	r25, Y+3	; 0x03
+     16c:	02 96       	adiw	r24, 0x02	; 2
+     16e:	29 81       	ldd	r18, Y+1	; 0x01
+     170:	fc 01       	movw	r30, r24
+     172:	20 83       	st	Z, r18
+    /* row3*/
+    temp        = state[3];
+     174:	8a 81       	ldd	r24, Y+2	; 0x02
+     176:	9b 81       	ldd	r25, Y+3	; 0x03
+     178:	fc 01       	movw	r30, r24
+     17a:	83 81       	ldd	r24, Z+3	; 0x03
+     17c:	89 83       	std	Y+1, r24	; 0x01
+    state[3]  = state[7];
+     17e:	8a 81       	ldd	r24, Y+2	; 0x02
+     180:	9b 81       	ldd	r25, Y+3	; 0x03
+     182:	03 96       	adiw	r24, 0x03	; 3
+     184:	2a 81       	ldd	r18, Y+2	; 0x02
+     186:	3b 81       	ldd	r19, Y+3	; 0x03
+     188:	f9 01       	movw	r30, r18
+     18a:	27 81       	ldd	r18, Z+7	; 0x07
+     18c:	fc 01       	movw	r30, r24
+     18e:	20 83       	st	Z, r18
+    state[7]  = state[11];
+     190:	8a 81       	ldd	r24, Y+2	; 0x02
+     192:	9b 81       	ldd	r25, Y+3	; 0x03
+     194:	07 96       	adiw	r24, 0x07	; 7
+     196:	2a 81       	ldd	r18, Y+2	; 0x02
+     198:	3b 81       	ldd	r19, Y+3	; 0x03
+     19a:	f9 01       	movw	r30, r18
+     19c:	23 85       	ldd	r18, Z+11	; 0x0b
+     19e:	fc 01       	movw	r30, r24
+     1a0:	20 83       	st	Z, r18
+    state[11] =state[15];
+     1a2:	8a 81       	ldd	r24, Y+2	; 0x02
+     1a4:	9b 81       	ldd	r25, Y+3	; 0x03
+     1a6:	0b 96       	adiw	r24, 0x0b	; 11
+     1a8:	2a 81       	ldd	r18, Y+2	; 0x02
+     1aa:	3b 81       	ldd	r19, Y+3	; 0x03
+     1ac:	f9 01       	movw	r30, r18
+     1ae:	27 85       	ldd	r18, Z+15	; 0x0f
+     1b0:	fc 01       	movw	r30, r24
+     1b2:	20 83       	st	Z, r18
+    state[15] = temp;
+     1b4:	8a 81       	ldd	r24, Y+2	; 0x02
+     1b6:	9b 81       	ldd	r25, Y+3	; 0x03
+     1b8:	0f 96       	adiw	r24, 0x0f	; 15
+     1ba:	29 81       	ldd	r18, Y+1	; 0x01
+     1bc:	fc 01       	movw	r30, r24
+     1be:	20 83       	st	Z, r18
+}
+     1c0:	00 00       	nop
+     1c2:	0f 90       	pop	r0
+     1c4:	0f 90       	pop	r0
+     1c6:	0f 90       	pop	r0
+     1c8:	df 91       	pop	r29
+     1ca:	cf 91       	pop	r28
+     1cc:	08 95       	ret
+
+000001ce <aes_decrypt_128>:
+void aes_decrypt_128( const uint8_t roundkeys[],  const uint8_t  ciphertext[], uint8_t plaintext[]) {
+     1ce:	ff 92       	push	r15
+     1d0:	0f 93       	push	r16
+     1d2:	1f 93       	push	r17
+     1d4:	cf 93       	push	r28
+     1d6:	df 93       	push	r29
+     1d8:	cd b7       	in	r28, 0x3d	; 61
+     1da:	de b7       	in	r29, 0x3e	; 62
+     1dc:	cb 51       	subi	r28, 0x1B	; 27
+     1de:	d1 40       	sbci	r29, 0x01	; 1
+     1e0:	0f b6       	in	r0, 0x3f	; 63
+     1e2:	f8 94       	cli
+     1e4:	de bf       	out	0x3e, r29	; 62
+     1e6:	0f be       	out	0x3f, r0	; 63
+     1e8:	cd bf       	out	0x3d, r28	; 61
+     1ea:	9e 01       	movw	r18, r28
+     1ec:	2a 5e       	subi	r18, 0xEA	; 234
+     1ee:	3e 4f       	sbci	r19, 0xFE	; 254
+     1f0:	f9 01       	movw	r30, r18
+     1f2:	91 83       	std	Z+1, r25	; 0x01
+     1f4:	80 83       	st	Z, r24
+     1f6:	ce 01       	movw	r24, r28
+     1f8:	88 5e       	subi	r24, 0xE8	; 232
+     1fa:	9e 4f       	sbci	r25, 0xFE	; 254
+     1fc:	fc 01       	movw	r30, r24
+     1fe:	71 83       	std	Z+1, r23	; 0x01
+     200:	60 83       	st	Z, r22
+     202:	ce 01       	movw	r24, r28
+     204:	86 5e       	subi	r24, 0xE6	; 230
+     206:	9e 4f       	sbci	r25, 0xFE	; 254
+     208:	fc 01       	movw	r30, r24
+     20a:	51 83       	std	Z+1, r21	; 0x01
+     20c:	40 83       	st	Z, r20
+    const uint8_t INV_SBOX[256] = {
+     20e:	80 e0       	ldi	r24, 0x00	; 0
+     210:	e0 e0       	ldi	r30, 0x00	; 0
+     212:	f2 e0       	ldi	r31, 0x02	; 2
+     214:	de 01       	movw	r26, r28
+     216:	16 96       	adiw	r26, 0x06	; 6
+     218:	01 90       	ld	r0, Z+
+     21a:	0d 92       	st	X+, r0
+     21c:	8a 95       	dec	r24
+     21e:	e1 f7       	brne	.-8      	; 0x218 <aes_decrypt_128+0x4a>
+
+    uint8_t tmp[16];
+    uint8_t t, u, v;
+    uint8_t i, j;
+
+    roundkeys += 160;
+     220:	ce 01       	movw	r24, r28
+     222:	8a 5e       	subi	r24, 0xEA	; 234
+     224:	9e 4f       	sbci	r25, 0xFE	; 254
+     226:	9e 01       	movw	r18, r28
+     228:	2a 5e       	subi	r18, 0xEA	; 234
+     22a:	3e 4f       	sbci	r19, 0xFE	; 254
+     22c:	f9 01       	movw	r30, r18
+     22e:	20 81       	ld	r18, Z
+     230:	31 81       	ldd	r19, Z+1	; 0x01
+     232:	20 56       	subi	r18, 0x60	; 96
+     234:	3f 4f       	sbci	r19, 0xFF	; 255
+     236:	fc 01       	movw	r30, r24
+     238:	31 83       	std	Z+1, r19	; 0x01
+     23a:	20 83       	st	Z, r18
+
+    /* first round*/
+	
+       for (i=(uint8_t) AES_BLOCK_SIZE-(uint8_t)1;i !=(uint8_t)0;--i)
+     23c:	8f e0       	ldi	r24, 0x0F	; 15
+     23e:	89 83       	std	Y+1, r24	; 0x01
+     240:	2b c0       	rjmp	.+86     	; 0x298 <aes_decrypt_128+0xca>
+	 {
+		plaintext[i] = ciphertext[i] ^ roundkeys[i];
+     242:	89 81       	ldd	r24, Y+1	; 0x01
+     244:	88 2f       	mov	r24, r24
+     246:	90 e0       	ldi	r25, 0x00	; 0
+     248:	9e 01       	movw	r18, r28
+     24a:	26 5e       	subi	r18, 0xE6	; 230
+     24c:	3e 4f       	sbci	r19, 0xFE	; 254
+     24e:	f9 01       	movw	r30, r18
+     250:	20 81       	ld	r18, Z
+     252:	31 81       	ldd	r19, Z+1	; 0x01
+     254:	82 0f       	add	r24, r18
+     256:	93 1f       	adc	r25, r19
+     258:	29 81       	ldd	r18, Y+1	; 0x01
+     25a:	22 2f       	mov	r18, r18
+     25c:	30 e0       	ldi	r19, 0x00	; 0
+     25e:	ae 01       	movw	r20, r28
+     260:	48 5e       	subi	r20, 0xE8	; 232
+     262:	5e 4f       	sbci	r21, 0xFE	; 254
+     264:	fa 01       	movw	r30, r20
+     266:	40 81       	ld	r20, Z
+     268:	51 81       	ldd	r21, Z+1	; 0x01
+     26a:	24 0f       	add	r18, r20
+     26c:	35 1f       	adc	r19, r21
+     26e:	f9 01       	movw	r30, r18
+     270:	60 81       	ld	r22, Z
+     272:	29 81       	ldd	r18, Y+1	; 0x01
+     274:	22 2f       	mov	r18, r18
+     276:	30 e0       	ldi	r19, 0x00	; 0
+     278:	ae 01       	movw	r20, r28
+     27a:	4a 5e       	subi	r20, 0xEA	; 234
+     27c:	5e 4f       	sbci	r21, 0xFE	; 254
+     27e:	fa 01       	movw	r30, r20
+     280:	40 81       	ld	r20, Z
+     282:	51 81       	ldd	r21, Z+1	; 0x01
+     284:	24 0f       	add	r18, r20
+     286:	35 1f       	adc	r19, r21
+     288:	f9 01       	movw	r30, r18
+     28a:	20 81       	ld	r18, Z
+     28c:	26 27       	eor	r18, r22
+     28e:	fc 01       	movw	r30, r24
+     290:	20 83       	st	Z, r18
+
+    roundkeys += 160;
+
+    /* first round*/
+	
+       for (i=(uint8_t) AES_BLOCK_SIZE-(uint8_t)1;i !=(uint8_t)0;--i)
+     292:	89 81       	ldd	r24, Y+1	; 0x01
+     294:	81 50       	subi	r24, 0x01	; 1
+     296:	89 83       	std	Y+1, r24	; 0x01
+     298:	89 81       	ldd	r24, Y+1	; 0x01
+     29a:	88 23       	and	r24, r24
+     29c:	91 f6       	brne	.-92     	; 0x242 <aes_decrypt_128+0x74>
+	 {
+		plaintext[i] = ciphertext[i] ^ roundkeys[i];
+		
+		}
+		plaintext[0] = ciphertext[0] ^ roundkeys[0];
+     29e:	ce 01       	movw	r24, r28
+     2a0:	88 5e       	subi	r24, 0xE8	; 232
+     2a2:	9e 4f       	sbci	r25, 0xFE	; 254
+     2a4:	fc 01       	movw	r30, r24
+     2a6:	80 81       	ld	r24, Z
+     2a8:	91 81       	ldd	r25, Z+1	; 0x01
+     2aa:	fc 01       	movw	r30, r24
+     2ac:	20 81       	ld	r18, Z
+     2ae:	ce 01       	movw	r24, r28
+     2b0:	8a 5e       	subi	r24, 0xEA	; 234
+     2b2:	9e 4f       	sbci	r25, 0xFE	; 254
+     2b4:	fc 01       	movw	r30, r24
+     2b6:	80 81       	ld	r24, Z
+     2b8:	91 81       	ldd	r25, Z+1	; 0x01
+     2ba:	fc 01       	movw	r30, r24
+     2bc:	80 81       	ld	r24, Z
+     2be:	28 27       	eor	r18, r24
+     2c0:	ce 01       	movw	r24, r28
+     2c2:	86 5e       	subi	r24, 0xE6	; 230
+     2c4:	9e 4f       	sbci	r25, 0xFE	; 254
+     2c6:	fc 01       	movw	r30, r24
+     2c8:	80 81       	ld	r24, Z
+     2ca:	91 81       	ldd	r25, Z+1	; 0x01
+     2cc:	fc 01       	movw	r30, r24
+     2ce:	20 83       	st	Z, r18
+	
+    roundkeys -= 16;
+     2d0:	ce 01       	movw	r24, r28
+     2d2:	8a 5e       	subi	r24, 0xEA	; 234
+     2d4:	9e 4f       	sbci	r25, 0xFE	; 254
+     2d6:	9e 01       	movw	r18, r28
+     2d8:	2a 5e       	subi	r18, 0xEA	; 234
+     2da:	3e 4f       	sbci	r19, 0xFE	; 254
+     2dc:	f9 01       	movw	r30, r18
+     2de:	20 81       	ld	r18, Z
+     2e0:	31 81       	ldd	r19, Z+1	; 0x01
+     2e2:	20 51       	subi	r18, 0x10	; 16
+     2e4:	31 09       	sbc	r19, r1
+     2e6:	fc 01       	movw	r30, r24
+     2e8:	31 83       	std	Z+1, r19	; 0x01
+     2ea:	20 83       	st	Z, r18
+    inv_shift_rows(plaintext);
+     2ec:	ce 01       	movw	r24, r28
+     2ee:	86 5e       	subi	r24, 0xE6	; 230
+     2f0:	9e 4f       	sbci	r25, 0xFE	; 254
+     2f2:	fc 01       	movw	r30, r24
+     2f4:	80 81       	ld	r24, Z
+     2f6:	91 81       	ldd	r25, Z+1	; 0x01
+     2f8:	0e 94 64 00 	call	0xc8	; 0xc8 <inv_shift_rows>
+    
+	for (i = (uint8_t)0;i<(uint8_t) AES_BLOCK_SIZE;++i) {
+     2fc:	19 82       	std	Y+1, r1	; 0x01
+     2fe:	26 c0       	rjmp	.+76     	; 0x34c <aes_decrypt_128+0x17e>
+       plaintext[i] = INV_SBOX[plaintext[i]];
+     300:	89 81       	ldd	r24, Y+1	; 0x01
+     302:	88 2f       	mov	r24, r24
+     304:	90 e0       	ldi	r25, 0x00	; 0
+     306:	9e 01       	movw	r18, r28
+     308:	26 5e       	subi	r18, 0xE6	; 230
+     30a:	3e 4f       	sbci	r19, 0xFE	; 254
+     30c:	f9 01       	movw	r30, r18
+     30e:	20 81       	ld	r18, Z
+     310:	31 81       	ldd	r19, Z+1	; 0x01
+     312:	82 0f       	add	r24, r18
+     314:	93 1f       	adc	r25, r19
+     316:	29 81       	ldd	r18, Y+1	; 0x01
+     318:	22 2f       	mov	r18, r18
+     31a:	30 e0       	ldi	r19, 0x00	; 0
+     31c:	ae 01       	movw	r20, r28
+     31e:	46 5e       	subi	r20, 0xE6	; 230
+     320:	5e 4f       	sbci	r21, 0xFE	; 254
+     322:	fa 01       	movw	r30, r20
+     324:	40 81       	ld	r20, Z
+     326:	51 81       	ldd	r21, Z+1	; 0x01
+     328:	24 0f       	add	r18, r20
+     32a:	35 1f       	adc	r19, r21
+     32c:	f9 01       	movw	r30, r18
+     32e:	20 81       	ld	r18, Z
+     330:	22 2f       	mov	r18, r18
+     332:	30 e0       	ldi	r19, 0x00	; 0
+     334:	ae 01       	movw	r20, r28
+     336:	4a 5f       	subi	r20, 0xFA	; 250
+     338:	5f 4f       	sbci	r21, 0xFF	; 255
+     33a:	24 0f       	add	r18, r20
+     33c:	35 1f       	adc	r19, r21
+     33e:	f9 01       	movw	r30, r18
+     340:	20 81       	ld	r18, Z
+     342:	fc 01       	movw	r30, r24
+     344:	20 83       	st	Z, r18
+		plaintext[0] = ciphertext[0] ^ roundkeys[0];
+	
+    roundkeys -= 16;
+    inv_shift_rows(plaintext);
+    
+	for (i = (uint8_t)0;i<(uint8_t) AES_BLOCK_SIZE;++i) {
+     346:	89 81       	ldd	r24, Y+1	; 0x01
+     348:	8f 5f       	subi	r24, 0xFF	; 255
+     34a:	89 83       	std	Y+1, r24	; 0x01
+     34c:	89 81       	ldd	r24, Y+1	; 0x01
+     34e:	80 31       	cpi	r24, 0x10	; 16
+     350:	b8 f2       	brcs	.-82     	; 0x300 <aes_decrypt_128+0x132>
+       plaintext[i] = INV_SBOX[plaintext[i]];
+    }
+	
+	
+    for ( j =(uint8_t) AES_ROUNDS-(uint8_t)1;j>(uint8_t)0; --j) {
+     352:	89 e0       	ldi	r24, 0x09	; 9
+     354:	8a 83       	std	Y+2, r24	; 0x02
+     356:	71 c2       	rjmp	.+1250   	; 0x83a <__LOCK_REGION_LENGTH__+0x43a>
+        
+        /* Inverse AddRoundKey*/
+        for (i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i!=(uint8_t)0; --i ) {
+     358:	8f e0       	ldi	r24, 0x0F	; 15
+     35a:	89 83       	std	Y+1, r24	; 0x01
+     35c:	29 c0       	rjmp	.+82     	; 0x3b0 <aes_decrypt_128+0x1e2>
+            tmp[i] = plaintext[i] ^ roundkeys[i];
+     35e:	89 81       	ldd	r24, Y+1	; 0x01
+     360:	88 2f       	mov	r24, r24
+     362:	90 e0       	ldi	r25, 0x00	; 0
+     364:	29 81       	ldd	r18, Y+1	; 0x01
+     366:	22 2f       	mov	r18, r18
+     368:	30 e0       	ldi	r19, 0x00	; 0
+     36a:	ae 01       	movw	r20, r28
+     36c:	46 5e       	subi	r20, 0xE6	; 230
+     36e:	5e 4f       	sbci	r21, 0xFE	; 254
+     370:	fa 01       	movw	r30, r20
+     372:	40 81       	ld	r20, Z
+     374:	51 81       	ldd	r21, Z+1	; 0x01
+     376:	24 0f       	add	r18, r20
+     378:	35 1f       	adc	r19, r21
+     37a:	f9 01       	movw	r30, r18
+     37c:	60 81       	ld	r22, Z
+     37e:	29 81       	ldd	r18, Y+1	; 0x01
+     380:	22 2f       	mov	r18, r18
+     382:	30 e0       	ldi	r19, 0x00	; 0
+     384:	ae 01       	movw	r20, r28
+     386:	4a 5e       	subi	r20, 0xEA	; 234
+     388:	5e 4f       	sbci	r21, 0xFE	; 254
+     38a:	fa 01       	movw	r30, r20
+     38c:	40 81       	ld	r20, Z
+     38e:	51 81       	ldd	r21, Z+1	; 0x01
+     390:	24 0f       	add	r18, r20
+     392:	35 1f       	adc	r19, r21
+     394:	f9 01       	movw	r30, r18
+     396:	20 81       	ld	r18, Z
+     398:	46 2f       	mov	r20, r22
+     39a:	42 27       	eor	r20, r18
+     39c:	9e 01       	movw	r18, r28
+     39e:	2a 5f       	subi	r18, 0xFA	; 250
+     3a0:	3e 4f       	sbci	r19, 0xFE	; 254
+     3a2:	82 0f       	add	r24, r18
+     3a4:	93 1f       	adc	r25, r19
+     3a6:	fc 01       	movw	r30, r24
+     3a8:	40 83       	st	Z, r20
+	
+	
+    for ( j =(uint8_t) AES_ROUNDS-(uint8_t)1;j>(uint8_t)0; --j) {
+        
+        /* Inverse AddRoundKey*/
+        for (i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i!=(uint8_t)0; --i ) {
+     3aa:	89 81       	ldd	r24, Y+1	; 0x01
+     3ac:	81 50       	subi	r24, 0x01	; 1
+     3ae:	89 83       	std	Y+1, r24	; 0x01
+     3b0:	89 81       	ldd	r24, Y+1	; 0x01
+     3b2:	88 23       	and	r24, r24
+     3b4:	a1 f6       	brne	.-88     	; 0x35e <aes_decrypt_128+0x190>
+            tmp[i] = plaintext[i] ^ roundkeys[i];
+        }
+		tmp[0] = plaintext[0] ^ roundkeys[0];
+     3b6:	ce 01       	movw	r24, r28
+     3b8:	86 5e       	subi	r24, 0xE6	; 230
+     3ba:	9e 4f       	sbci	r25, 0xFE	; 254
+     3bc:	fc 01       	movw	r30, r24
+     3be:	80 81       	ld	r24, Z
+     3c0:	91 81       	ldd	r25, Z+1	; 0x01
+     3c2:	fc 01       	movw	r30, r24
+     3c4:	20 81       	ld	r18, Z
+     3c6:	ce 01       	movw	r24, r28
+     3c8:	8a 5e       	subi	r24, 0xEA	; 234
+     3ca:	9e 4f       	sbci	r25, 0xFE	; 254
+     3cc:	fc 01       	movw	r30, r24
+     3ce:	80 81       	ld	r24, Z
+     3d0:	91 81       	ldd	r25, Z+1	; 0x01
+     3d2:	fc 01       	movw	r30, r24
+     3d4:	80 81       	ld	r24, Z
+     3d6:	28 27       	eor	r18, r24
+     3d8:	ce 01       	movw	r24, r28
+     3da:	8a 5f       	subi	r24, 0xFA	; 250
+     3dc:	9e 4f       	sbci	r25, 0xFE	; 254
+     3de:	fc 01       	movw	r30, r24
+     3e0:	20 83       	st	Z, r18
+         * [0e 0b 0d 09]   [s0  s4  s8  s12]
+         * [09 0e 0b 0d] . [s1  s5  s9  s13]
+         * [0d 09 0e 0b]   [s2  s6  s10 s14]
+         * [0b 0d 09 0e]   [s3  s7  s11 s15]
+         */
+        for (i =(uint8_t) 0; i <(uint8_t) AES_BLOCK_SIZE; i+=(uint8_t)4) {
+     3e2:	19 82       	std	Y+1, r1	; 0x01
+     3e4:	c8 c1       	rjmp	.+912    	; 0x776 <__LOCK_REGION_LENGTH__+0x376>
+            t = tmp[i] ^ tmp[i+1u] ^ tmp[i+2u] ^ tmp[i+3u];
+     3e6:	89 81       	ldd	r24, Y+1	; 0x01
+     3e8:	88 2f       	mov	r24, r24
+     3ea:	90 e0       	ldi	r25, 0x00	; 0
+     3ec:	9e 01       	movw	r18, r28
+     3ee:	2a 5f       	subi	r18, 0xFA	; 250
+     3f0:	3e 4f       	sbci	r19, 0xFE	; 254
+     3f2:	82 0f       	add	r24, r18
+     3f4:	93 1f       	adc	r25, r19
+     3f6:	fc 01       	movw	r30, r24
+     3f8:	40 81       	ld	r20, Z
+     3fa:	89 81       	ldd	r24, Y+1	; 0x01
+     3fc:	88 2f       	mov	r24, r24
+     3fe:	90 e0       	ldi	r25, 0x00	; 0
+     400:	01 96       	adiw	r24, 0x01	; 1
+     402:	9e 01       	movw	r18, r28
+     404:	2a 5f       	subi	r18, 0xFA	; 250
+     406:	3e 4f       	sbci	r19, 0xFE	; 254
+     408:	82 0f       	add	r24, r18
+     40a:	93 1f       	adc	r25, r19
+     40c:	fc 01       	movw	r30, r24
+     40e:	80 81       	ld	r24, Z
+     410:	48 27       	eor	r20, r24
+     412:	89 81       	ldd	r24, Y+1	; 0x01
+     414:	88 2f       	mov	r24, r24
+     416:	90 e0       	ldi	r25, 0x00	; 0
+     418:	02 96       	adiw	r24, 0x02	; 2
+     41a:	9e 01       	movw	r18, r28
+     41c:	2a 5f       	subi	r18, 0xFA	; 250
+     41e:	3e 4f       	sbci	r19, 0xFE	; 254
+     420:	82 0f       	add	r24, r18
+     422:	93 1f       	adc	r25, r19
+     424:	fc 01       	movw	r30, r24
+     426:	80 81       	ld	r24, Z
+     428:	48 27       	eor	r20, r24
+     42a:	89 81       	ldd	r24, Y+1	; 0x01
+     42c:	88 2f       	mov	r24, r24
+     42e:	90 e0       	ldi	r25, 0x00	; 0
+     430:	03 96       	adiw	r24, 0x03	; 3
+     432:	9e 01       	movw	r18, r28
+     434:	2a 5f       	subi	r18, 0xFA	; 250
+     436:	3e 4f       	sbci	r19, 0xFE	; 254
+     438:	82 0f       	add	r24, r18
+     43a:	93 1f       	adc	r25, r19
+     43c:	fc 01       	movw	r30, r24
+     43e:	80 81       	ld	r24, Z
+     440:	84 27       	eor	r24, r20
+     442:	8b 83       	std	Y+3, r24	; 0x03
+			plaintext[i]   = t ^ tmp[i]   ^ mul2(tmp[i]^ tmp[i+1u]);
+     444:	89 81       	ldd	r24, Y+1	; 0x01
+     446:	88 2f       	mov	r24, r24
+     448:	90 e0       	ldi	r25, 0x00	; 0
+     44a:	9e 01       	movw	r18, r28
+     44c:	26 5e       	subi	r18, 0xE6	; 230
+     44e:	3e 4f       	sbci	r19, 0xFE	; 254
+     450:	f9 01       	movw	r30, r18
+     452:	20 81       	ld	r18, Z
+     454:	31 81       	ldd	r19, Z+1	; 0x01
+     456:	89 01       	movw	r16, r18
+     458:	08 0f       	add	r16, r24
+     45a:	19 1f       	adc	r17, r25
+     45c:	89 81       	ldd	r24, Y+1	; 0x01
+     45e:	88 2f       	mov	r24, r24
+     460:	90 e0       	ldi	r25, 0x00	; 0
+     462:	9e 01       	movw	r18, r28
+     464:	2a 5f       	subi	r18, 0xFA	; 250
+     466:	3e 4f       	sbci	r19, 0xFE	; 254
+     468:	82 0f       	add	r24, r18
+     46a:	93 1f       	adc	r25, r19
+     46c:	fc 01       	movw	r30, r24
+     46e:	90 81       	ld	r25, Z
+     470:	8b 81       	ldd	r24, Y+3	; 0x03
+     472:	f9 2e       	mov	r15, r25
+     474:	f8 26       	eor	r15, r24
+     476:	89 81       	ldd	r24, Y+1	; 0x01
+     478:	88 2f       	mov	r24, r24
+     47a:	90 e0       	ldi	r25, 0x00	; 0
+     47c:	9e 01       	movw	r18, r28
+     47e:	2a 5f       	subi	r18, 0xFA	; 250
+     480:	3e 4f       	sbci	r19, 0xFE	; 254
+     482:	82 0f       	add	r24, r18
+     484:	93 1f       	adc	r25, r19
+     486:	fc 01       	movw	r30, r24
+     488:	40 81       	ld	r20, Z
+     48a:	89 81       	ldd	r24, Y+1	; 0x01
+     48c:	88 2f       	mov	r24, r24
+     48e:	90 e0       	ldi	r25, 0x00	; 0
+     490:	01 96       	adiw	r24, 0x01	; 1
+     492:	9e 01       	movw	r18, r28
+     494:	2a 5f       	subi	r18, 0xFA	; 250
+     496:	3e 4f       	sbci	r19, 0xFE	; 254
+     498:	82 0f       	add	r24, r18
+     49a:	93 1f       	adc	r25, r19
+     49c:	fc 01       	movw	r30, r24
+     49e:	80 81       	ld	r24, Z
+     4a0:	84 27       	eor	r24, r20
+     4a2:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     4a6:	8f 25       	eor	r24, r15
+     4a8:	f8 01       	movw	r30, r16
+     4aa:	80 83       	st	Z, r24
+            plaintext[i+1u] = t ^ tmp[i+1u] ^ mul2((tmp[i+1u] ^ tmp[i+2u]));
+     4ac:	89 81       	ldd	r24, Y+1	; 0x01
+     4ae:	88 2f       	mov	r24, r24
+     4b0:	90 e0       	ldi	r25, 0x00	; 0
+     4b2:	01 96       	adiw	r24, 0x01	; 1
+     4b4:	9e 01       	movw	r18, r28
+     4b6:	26 5e       	subi	r18, 0xE6	; 230
+     4b8:	3e 4f       	sbci	r19, 0xFE	; 254
+     4ba:	f9 01       	movw	r30, r18
+     4bc:	20 81       	ld	r18, Z
+     4be:	31 81       	ldd	r19, Z+1	; 0x01
+     4c0:	89 01       	movw	r16, r18
+     4c2:	08 0f       	add	r16, r24
+     4c4:	19 1f       	adc	r17, r25
+     4c6:	89 81       	ldd	r24, Y+1	; 0x01
+     4c8:	88 2f       	mov	r24, r24
+     4ca:	90 e0       	ldi	r25, 0x00	; 0
+     4cc:	01 96       	adiw	r24, 0x01	; 1
+     4ce:	9e 01       	movw	r18, r28
+     4d0:	2a 5f       	subi	r18, 0xFA	; 250
+     4d2:	3e 4f       	sbci	r19, 0xFE	; 254
+     4d4:	82 0f       	add	r24, r18
+     4d6:	93 1f       	adc	r25, r19
+     4d8:	fc 01       	movw	r30, r24
+     4da:	90 81       	ld	r25, Z
+     4dc:	8b 81       	ldd	r24, Y+3	; 0x03
+     4de:	f9 2e       	mov	r15, r25
+     4e0:	f8 26       	eor	r15, r24
+     4e2:	89 81       	ldd	r24, Y+1	; 0x01
+     4e4:	88 2f       	mov	r24, r24
+     4e6:	90 e0       	ldi	r25, 0x00	; 0
+     4e8:	01 96       	adiw	r24, 0x01	; 1
+     4ea:	9e 01       	movw	r18, r28
+     4ec:	2a 5f       	subi	r18, 0xFA	; 250
+     4ee:	3e 4f       	sbci	r19, 0xFE	; 254
+     4f0:	82 0f       	add	r24, r18
+     4f2:	93 1f       	adc	r25, r19
+     4f4:	fc 01       	movw	r30, r24
+     4f6:	40 81       	ld	r20, Z
+     4f8:	89 81       	ldd	r24, Y+1	; 0x01
+     4fa:	88 2f       	mov	r24, r24
+     4fc:	90 e0       	ldi	r25, 0x00	; 0
+     4fe:	02 96       	adiw	r24, 0x02	; 2
+     500:	9e 01       	movw	r18, r28
+     502:	2a 5f       	subi	r18, 0xFA	; 250
+     504:	3e 4f       	sbci	r19, 0xFE	; 254
+     506:	82 0f       	add	r24, r18
+     508:	93 1f       	adc	r25, r19
+     50a:	fc 01       	movw	r30, r24
+     50c:	80 81       	ld	r24, Z
+     50e:	84 27       	eor	r24, r20
+     510:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     514:	8f 25       	eor	r24, r15
+     516:	f8 01       	movw	r30, r16
+     518:	80 83       	st	Z, r24
+            plaintext[i+2u] = t ^ tmp[i+2u] ^ mul2(tmp[i+2u] ^ tmp[i+3u]);
+     51a:	89 81       	ldd	r24, Y+1	; 0x01
+     51c:	88 2f       	mov	r24, r24
+     51e:	90 e0       	ldi	r25, 0x00	; 0
+     520:	02 96       	adiw	r24, 0x02	; 2
+     522:	9e 01       	movw	r18, r28
+     524:	26 5e       	subi	r18, 0xE6	; 230
+     526:	3e 4f       	sbci	r19, 0xFE	; 254
+     528:	f9 01       	movw	r30, r18
+     52a:	20 81       	ld	r18, Z
+     52c:	31 81       	ldd	r19, Z+1	; 0x01
+     52e:	89 01       	movw	r16, r18
+     530:	08 0f       	add	r16, r24
+     532:	19 1f       	adc	r17, r25
+     534:	89 81       	ldd	r24, Y+1	; 0x01
+     536:	88 2f       	mov	r24, r24
+     538:	90 e0       	ldi	r25, 0x00	; 0
+     53a:	02 96       	adiw	r24, 0x02	; 2
+     53c:	9e 01       	movw	r18, r28
+     53e:	2a 5f       	subi	r18, 0xFA	; 250
+     540:	3e 4f       	sbci	r19, 0xFE	; 254
+     542:	82 0f       	add	r24, r18
+     544:	93 1f       	adc	r25, r19
+     546:	fc 01       	movw	r30, r24
+     548:	90 81       	ld	r25, Z
+     54a:	8b 81       	ldd	r24, Y+3	; 0x03
+     54c:	f9 2e       	mov	r15, r25
+     54e:	f8 26       	eor	r15, r24
+     550:	89 81       	ldd	r24, Y+1	; 0x01
+     552:	88 2f       	mov	r24, r24
+     554:	90 e0       	ldi	r25, 0x00	; 0
+     556:	02 96       	adiw	r24, 0x02	; 2
+     558:	9e 01       	movw	r18, r28
+     55a:	2a 5f       	subi	r18, 0xFA	; 250
+     55c:	3e 4f       	sbci	r19, 0xFE	; 254
+     55e:	82 0f       	add	r24, r18
+     560:	93 1f       	adc	r25, r19
+     562:	fc 01       	movw	r30, r24
+     564:	40 81       	ld	r20, Z
+     566:	89 81       	ldd	r24, Y+1	; 0x01
+     568:	88 2f       	mov	r24, r24
+     56a:	90 e0       	ldi	r25, 0x00	; 0
+     56c:	03 96       	adiw	r24, 0x03	; 3
+     56e:	9e 01       	movw	r18, r28
+     570:	2a 5f       	subi	r18, 0xFA	; 250
+     572:	3e 4f       	sbci	r19, 0xFE	; 254
+     574:	82 0f       	add	r24, r18
+     576:	93 1f       	adc	r25, r19
+     578:	fc 01       	movw	r30, r24
+     57a:	80 81       	ld	r24, Z
+     57c:	84 27       	eor	r24, r20
+     57e:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     582:	8f 25       	eor	r24, r15
+     584:	f8 01       	movw	r30, r16
+     586:	80 83       	st	Z, r24
+            plaintext[i+3u] = t ^ tmp[i+3u] ^ mul2(tmp[i+3u] ^ tmp[i]);
+     588:	89 81       	ldd	r24, Y+1	; 0x01
+     58a:	88 2f       	mov	r24, r24
+     58c:	90 e0       	ldi	r25, 0x00	; 0
+     58e:	03 96       	adiw	r24, 0x03	; 3
+     590:	9e 01       	movw	r18, r28
+     592:	26 5e       	subi	r18, 0xE6	; 230
+     594:	3e 4f       	sbci	r19, 0xFE	; 254
+     596:	f9 01       	movw	r30, r18
+     598:	20 81       	ld	r18, Z
+     59a:	31 81       	ldd	r19, Z+1	; 0x01
+     59c:	89 01       	movw	r16, r18
+     59e:	08 0f       	add	r16, r24
+     5a0:	19 1f       	adc	r17, r25
+     5a2:	89 81       	ldd	r24, Y+1	; 0x01
+     5a4:	88 2f       	mov	r24, r24
+     5a6:	90 e0       	ldi	r25, 0x00	; 0
+     5a8:	03 96       	adiw	r24, 0x03	; 3
+     5aa:	9e 01       	movw	r18, r28
+     5ac:	2a 5f       	subi	r18, 0xFA	; 250
+     5ae:	3e 4f       	sbci	r19, 0xFE	; 254
+     5b0:	82 0f       	add	r24, r18
+     5b2:	93 1f       	adc	r25, r19
+     5b4:	fc 01       	movw	r30, r24
+     5b6:	90 81       	ld	r25, Z
+     5b8:	8b 81       	ldd	r24, Y+3	; 0x03
+     5ba:	f9 2e       	mov	r15, r25
+     5bc:	f8 26       	eor	r15, r24
+     5be:	89 81       	ldd	r24, Y+1	; 0x01
+     5c0:	88 2f       	mov	r24, r24
+     5c2:	90 e0       	ldi	r25, 0x00	; 0
+     5c4:	03 96       	adiw	r24, 0x03	; 3
+     5c6:	9e 01       	movw	r18, r28
+     5c8:	2a 5f       	subi	r18, 0xFA	; 250
+     5ca:	3e 4f       	sbci	r19, 0xFE	; 254
+     5cc:	82 0f       	add	r24, r18
+     5ce:	93 1f       	adc	r25, r19
+     5d0:	fc 01       	movw	r30, r24
+     5d2:	40 81       	ld	r20, Z
+     5d4:	89 81       	ldd	r24, Y+1	; 0x01
+     5d6:	88 2f       	mov	r24, r24
+     5d8:	90 e0       	ldi	r25, 0x00	; 0
+     5da:	9e 01       	movw	r18, r28
+     5dc:	2a 5f       	subi	r18, 0xFA	; 250
+     5de:	3e 4f       	sbci	r19, 0xFE	; 254
+     5e0:	82 0f       	add	r24, r18
+     5e2:	93 1f       	adc	r25, r19
+     5e4:	fc 01       	movw	r30, r24
+     5e6:	80 81       	ld	r24, Z
+     5e8:	84 27       	eor	r24, r20
+     5ea:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     5ee:	8f 25       	eor	r24, r15
+     5f0:	f8 01       	movw	r30, r16
+     5f2:	80 83       	st	Z, r24
+            u = mul2(mul2(tmp[i]   ^ tmp[i+2u]));
+     5f4:	89 81       	ldd	r24, Y+1	; 0x01
+     5f6:	88 2f       	mov	r24, r24
+     5f8:	90 e0       	ldi	r25, 0x00	; 0
+     5fa:	9e 01       	movw	r18, r28
+     5fc:	2a 5f       	subi	r18, 0xFA	; 250
+     5fe:	3e 4f       	sbci	r19, 0xFE	; 254
+     600:	82 0f       	add	r24, r18
+     602:	93 1f       	adc	r25, r19
+     604:	fc 01       	movw	r30, r24
+     606:	40 81       	ld	r20, Z
+     608:	89 81       	ldd	r24, Y+1	; 0x01
+     60a:	88 2f       	mov	r24, r24
+     60c:	90 e0       	ldi	r25, 0x00	; 0
+     60e:	02 96       	adiw	r24, 0x02	; 2
+     610:	9e 01       	movw	r18, r28
+     612:	2a 5f       	subi	r18, 0xFA	; 250
+     614:	3e 4f       	sbci	r19, 0xFE	; 254
+     616:	82 0f       	add	r24, r18
+     618:	93 1f       	adc	r25, r19
+     61a:	fc 01       	movw	r30, r24
+     61c:	80 81       	ld	r24, Z
+     61e:	84 27       	eor	r24, r20
+     620:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     624:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     628:	8c 83       	std	Y+4, r24	; 0x04
+            v = mul2(mul2(tmp[i+1u] ^ tmp[i+3u]));
+     62a:	89 81       	ldd	r24, Y+1	; 0x01
+     62c:	88 2f       	mov	r24, r24
+     62e:	90 e0       	ldi	r25, 0x00	; 0
+     630:	01 96       	adiw	r24, 0x01	; 1
+     632:	9e 01       	movw	r18, r28
+     634:	2a 5f       	subi	r18, 0xFA	; 250
+     636:	3e 4f       	sbci	r19, 0xFE	; 254
+     638:	82 0f       	add	r24, r18
+     63a:	93 1f       	adc	r25, r19
+     63c:	fc 01       	movw	r30, r24
+     63e:	40 81       	ld	r20, Z
+     640:	89 81       	ldd	r24, Y+1	; 0x01
+     642:	88 2f       	mov	r24, r24
+     644:	90 e0       	ldi	r25, 0x00	; 0
+     646:	03 96       	adiw	r24, 0x03	; 3
+     648:	9e 01       	movw	r18, r28
+     64a:	2a 5f       	subi	r18, 0xFA	; 250
+     64c:	3e 4f       	sbci	r19, 0xFE	; 254
+     64e:	82 0f       	add	r24, r18
+     650:	93 1f       	adc	r25, r19
+     652:	fc 01       	movw	r30, r24
+     654:	80 81       	ld	r24, Z
+     656:	84 27       	eor	r24, r20
+     658:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     65c:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     660:	8d 83       	std	Y+5, r24	; 0x05
+            t = mul2(u ^ v);
+     662:	9c 81       	ldd	r25, Y+4	; 0x04
+     664:	8d 81       	ldd	r24, Y+5	; 0x05
+     666:	89 27       	eor	r24, r25
+     668:	0e 94 4b 00 	call	0x96	; 0x96 <mul2>
+     66c:	8b 83       	std	Y+3, r24	; 0x03
+            plaintext[i]   ^= (t ^ u);
+     66e:	89 81       	ldd	r24, Y+1	; 0x01
+     670:	88 2f       	mov	r24, r24
+     672:	90 e0       	ldi	r25, 0x00	; 0
+     674:	9e 01       	movw	r18, r28
+     676:	26 5e       	subi	r18, 0xE6	; 230
+     678:	3e 4f       	sbci	r19, 0xFE	; 254
+     67a:	f9 01       	movw	r30, r18
+     67c:	20 81       	ld	r18, Z
+     67e:	31 81       	ldd	r19, Z+1	; 0x01
+     680:	82 0f       	add	r24, r18
+     682:	93 1f       	adc	r25, r19
+     684:	29 81       	ldd	r18, Y+1	; 0x01
+     686:	22 2f       	mov	r18, r18
+     688:	30 e0       	ldi	r19, 0x00	; 0
+     68a:	ae 01       	movw	r20, r28
+     68c:	46 5e       	subi	r20, 0xE6	; 230
+     68e:	5e 4f       	sbci	r21, 0xFE	; 254
+     690:	fa 01       	movw	r30, r20
+     692:	40 81       	ld	r20, Z
+     694:	51 81       	ldd	r21, Z+1	; 0x01
+     696:	24 0f       	add	r18, r20
+     698:	35 1f       	adc	r19, r21
+     69a:	f9 01       	movw	r30, r18
+     69c:	30 81       	ld	r19, Z
+     69e:	4b 81       	ldd	r20, Y+3	; 0x03
+     6a0:	2c 81       	ldd	r18, Y+4	; 0x04
+     6a2:	24 27       	eor	r18, r20
+     6a4:	23 27       	eor	r18, r19
+     6a6:	fc 01       	movw	r30, r24
+     6a8:	20 83       	st	Z, r18
+            plaintext[i+1u] ^= (t ^ v);
+     6aa:	89 81       	ldd	r24, Y+1	; 0x01
+     6ac:	88 2f       	mov	r24, r24
+     6ae:	90 e0       	ldi	r25, 0x00	; 0
+     6b0:	01 96       	adiw	r24, 0x01	; 1
+     6b2:	9e 01       	movw	r18, r28
+     6b4:	26 5e       	subi	r18, 0xE6	; 230
+     6b6:	3e 4f       	sbci	r19, 0xFE	; 254
+     6b8:	f9 01       	movw	r30, r18
+     6ba:	20 81       	ld	r18, Z
+     6bc:	31 81       	ldd	r19, Z+1	; 0x01
+     6be:	82 0f       	add	r24, r18
+     6c0:	93 1f       	adc	r25, r19
+     6c2:	29 81       	ldd	r18, Y+1	; 0x01
+     6c4:	22 2f       	mov	r18, r18
+     6c6:	30 e0       	ldi	r19, 0x00	; 0
+     6c8:	2f 5f       	subi	r18, 0xFF	; 255
+     6ca:	3f 4f       	sbci	r19, 0xFF	; 255
+     6cc:	ae 01       	movw	r20, r28
+     6ce:	46 5e       	subi	r20, 0xE6	; 230
+     6d0:	5e 4f       	sbci	r21, 0xFE	; 254
+     6d2:	fa 01       	movw	r30, r20
+     6d4:	40 81       	ld	r20, Z
+     6d6:	51 81       	ldd	r21, Z+1	; 0x01
+     6d8:	24 0f       	add	r18, r20
+     6da:	35 1f       	adc	r19, r21
+     6dc:	f9 01       	movw	r30, r18
+     6de:	30 81       	ld	r19, Z
+     6e0:	4b 81       	ldd	r20, Y+3	; 0x03
+     6e2:	2d 81       	ldd	r18, Y+5	; 0x05
+     6e4:	24 27       	eor	r18, r20
+     6e6:	23 27       	eor	r18, r19
+     6e8:	fc 01       	movw	r30, r24
+     6ea:	20 83       	st	Z, r18
+            plaintext[i+2u] ^= (t ^ u);
+     6ec:	89 81       	ldd	r24, Y+1	; 0x01
+     6ee:	88 2f       	mov	r24, r24
+     6f0:	90 e0       	ldi	r25, 0x00	; 0
+     6f2:	02 96       	adiw	r24, 0x02	; 2
+     6f4:	9e 01       	movw	r18, r28
+     6f6:	26 5e       	subi	r18, 0xE6	; 230
+     6f8:	3e 4f       	sbci	r19, 0xFE	; 254
+     6fa:	f9 01       	movw	r30, r18
+     6fc:	20 81       	ld	r18, Z
+     6fe:	31 81       	ldd	r19, Z+1	; 0x01
+     700:	82 0f       	add	r24, r18
+     702:	93 1f       	adc	r25, r19
+     704:	29 81       	ldd	r18, Y+1	; 0x01
+     706:	22 2f       	mov	r18, r18
+     708:	30 e0       	ldi	r19, 0x00	; 0
+     70a:	2e 5f       	subi	r18, 0xFE	; 254
+     70c:	3f 4f       	sbci	r19, 0xFF	; 255
+     70e:	ae 01       	movw	r20, r28
+     710:	46 5e       	subi	r20, 0xE6	; 230
+     712:	5e 4f       	sbci	r21, 0xFE	; 254
+     714:	fa 01       	movw	r30, r20
+     716:	40 81       	ld	r20, Z
+     718:	51 81       	ldd	r21, Z+1	; 0x01
+     71a:	24 0f       	add	r18, r20
+     71c:	35 1f       	adc	r19, r21
+     71e:	f9 01       	movw	r30, r18
+     720:	30 81       	ld	r19, Z
+     722:	4b 81       	ldd	r20, Y+3	; 0x03
+     724:	2c 81       	ldd	r18, Y+4	; 0x04
+     726:	24 27       	eor	r18, r20
+     728:	23 27       	eor	r18, r19
+     72a:	fc 01       	movw	r30, r24
+     72c:	20 83       	st	Z, r18
+            plaintext[i+3u] ^= (t ^ v);
+     72e:	89 81       	ldd	r24, Y+1	; 0x01
+     730:	88 2f       	mov	r24, r24
+     732:	90 e0       	ldi	r25, 0x00	; 0
+     734:	03 96       	adiw	r24, 0x03	; 3
+     736:	9e 01       	movw	r18, r28
+     738:	26 5e       	subi	r18, 0xE6	; 230
+     73a:	3e 4f       	sbci	r19, 0xFE	; 254
+     73c:	f9 01       	movw	r30, r18
+     73e:	20 81       	ld	r18, Z
+     740:	31 81       	ldd	r19, Z+1	; 0x01
+     742:	82 0f       	add	r24, r18
+     744:	93 1f       	adc	r25, r19
+     746:	29 81       	ldd	r18, Y+1	; 0x01
+     748:	22 2f       	mov	r18, r18
+     74a:	30 e0       	ldi	r19, 0x00	; 0
+     74c:	2d 5f       	subi	r18, 0xFD	; 253
+     74e:	3f 4f       	sbci	r19, 0xFF	; 255
+     750:	ae 01       	movw	r20, r28
+     752:	46 5e       	subi	r20, 0xE6	; 230
+     754:	5e 4f       	sbci	r21, 0xFE	; 254
+     756:	fa 01       	movw	r30, r20
+     758:	40 81       	ld	r20, Z
+     75a:	51 81       	ldd	r21, Z+1	; 0x01
+     75c:	24 0f       	add	r18, r20
+     75e:	35 1f       	adc	r19, r21
+     760:	f9 01       	movw	r30, r18
+     762:	30 81       	ld	r19, Z
+     764:	4b 81       	ldd	r20, Y+3	; 0x03
+     766:	2d 81       	ldd	r18, Y+5	; 0x05
+     768:	24 27       	eor	r18, r20
+     76a:	23 27       	eor	r18, r19
+     76c:	fc 01       	movw	r30, r24
+     76e:	20 83       	st	Z, r18
+         * [0e 0b 0d 09]   [s0  s4  s8  s12]
+         * [09 0e 0b 0d] . [s1  s5  s9  s13]
+         * [0d 09 0e 0b]   [s2  s6  s10 s14]
+         * [0b 0d 09 0e]   [s3  s7  s11 s15]
+         */
+        for (i =(uint8_t) 0; i <(uint8_t) AES_BLOCK_SIZE; i+=(uint8_t)4) {
+     770:	89 81       	ldd	r24, Y+1	; 0x01
+     772:	8c 5f       	subi	r24, 0xFC	; 252
+     774:	89 83       	std	Y+1, r24	; 0x01
+     776:	89 81       	ldd	r24, Y+1	; 0x01
+     778:	80 31       	cpi	r24, 0x10	; 16
+     77a:	08 f4       	brcc	.+2      	; 0x77e <__LOCK_REGION_LENGTH__+0x37e>
+     77c:	34 ce       	rjmp	.-920    	; 0x3e6 <aes_decrypt_128+0x218>
+            plaintext[i+2u] ^= (t ^ u);
+            plaintext[i+3u] ^= (t ^ v);
+        }
+        
+        /* Inverse ShiftRows*/
+        inv_shift_rows(plaintext);
+     77e:	ce 01       	movw	r24, r28
+     780:	86 5e       	subi	r24, 0xE6	; 230
+     782:	9e 4f       	sbci	r25, 0xFE	; 254
+     784:	fc 01       	movw	r30, r24
+     786:	80 81       	ld	r24, Z
+     788:	91 81       	ldd	r25, Z+1	; 0x01
+     78a:	0e 94 64 00 	call	0xc8	; 0xc8 <inv_shift_rows>
+        
+        /* Inverse SubBytes*/
+        for ( i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i!=(uint8_t)0;i--) {
+     78e:	8f e0       	ldi	r24, 0x0F	; 15
+     790:	89 83       	std	Y+1, r24	; 0x01
+     792:	26 c0       	rjmp	.+76     	; 0x7e0 <__LOCK_REGION_LENGTH__+0x3e0>
+           plaintext[i] = INV_SBOX[plaintext[i]];
+     794:	89 81       	ldd	r24, Y+1	; 0x01
+     796:	88 2f       	mov	r24, r24
+     798:	90 e0       	ldi	r25, 0x00	; 0
+     79a:	9e 01       	movw	r18, r28
+     79c:	26 5e       	subi	r18, 0xE6	; 230
+     79e:	3e 4f       	sbci	r19, 0xFE	; 254
+     7a0:	f9 01       	movw	r30, r18
+     7a2:	20 81       	ld	r18, Z
+     7a4:	31 81       	ldd	r19, Z+1	; 0x01
+     7a6:	82 0f       	add	r24, r18
+     7a8:	93 1f       	adc	r25, r19
+     7aa:	29 81       	ldd	r18, Y+1	; 0x01
+     7ac:	22 2f       	mov	r18, r18
+     7ae:	30 e0       	ldi	r19, 0x00	; 0
+     7b0:	ae 01       	movw	r20, r28
+     7b2:	46 5e       	subi	r20, 0xE6	; 230
+     7b4:	5e 4f       	sbci	r21, 0xFE	; 254
+     7b6:	fa 01       	movw	r30, r20
+     7b8:	40 81       	ld	r20, Z
+     7ba:	51 81       	ldd	r21, Z+1	; 0x01
+     7bc:	24 0f       	add	r18, r20
+     7be:	35 1f       	adc	r19, r21
+     7c0:	f9 01       	movw	r30, r18
+     7c2:	20 81       	ld	r18, Z
+     7c4:	22 2f       	mov	r18, r18
+     7c6:	30 e0       	ldi	r19, 0x00	; 0
+     7c8:	ae 01       	movw	r20, r28
+     7ca:	4a 5f       	subi	r20, 0xFA	; 250
+     7cc:	5f 4f       	sbci	r21, 0xFF	; 255
+     7ce:	24 0f       	add	r18, r20
+     7d0:	35 1f       	adc	r19, r21
+     7d2:	f9 01       	movw	r30, r18
+     7d4:	20 81       	ld	r18, Z
+     7d6:	fc 01       	movw	r30, r24
+     7d8:	20 83       	st	Z, r18
+        
+        /* Inverse ShiftRows*/
+        inv_shift_rows(plaintext);
+        
+        /* Inverse SubBytes*/
+        for ( i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i!=(uint8_t)0;i--) {
+     7da:	89 81       	ldd	r24, Y+1	; 0x01
+     7dc:	81 50       	subi	r24, 0x01	; 1
+     7de:	89 83       	std	Y+1, r24	; 0x01
+     7e0:	89 81       	ldd	r24, Y+1	; 0x01
+     7e2:	88 23       	and	r24, r24
+     7e4:	b9 f6       	brne	.-82     	; 0x794 <__LOCK_REGION_LENGTH__+0x394>
+           plaintext[i] = INV_SBOX[plaintext[i]];
+        }
+		 plaintext[0] = INV_SBOX[plaintext[0]];
+     7e6:	ce 01       	movw	r24, r28
+     7e8:	86 5e       	subi	r24, 0xE6	; 230
+     7ea:	9e 4f       	sbci	r25, 0xFE	; 254
+     7ec:	fc 01       	movw	r30, r24
+     7ee:	80 81       	ld	r24, Z
+     7f0:	91 81       	ldd	r25, Z+1	; 0x01
+     7f2:	fc 01       	movw	r30, r24
+     7f4:	80 81       	ld	r24, Z
+     7f6:	88 2f       	mov	r24, r24
+     7f8:	90 e0       	ldi	r25, 0x00	; 0
+     7fa:	9e 01       	movw	r18, r28
+     7fc:	2a 5f       	subi	r18, 0xFA	; 250
+     7fe:	3f 4f       	sbci	r19, 0xFF	; 255
+     800:	82 0f       	add	r24, r18
+     802:	93 1f       	adc	r25, r19
+     804:	fc 01       	movw	r30, r24
+     806:	20 81       	ld	r18, Z
+     808:	ce 01       	movw	r24, r28
+     80a:	86 5e       	subi	r24, 0xE6	; 230
+     80c:	9e 4f       	sbci	r25, 0xFE	; 254
+     80e:	fc 01       	movw	r30, r24
+     810:	80 81       	ld	r24, Z
+     812:	91 81       	ldd	r25, Z+1	; 0x01
+     814:	fc 01       	movw	r30, r24
+     816:	20 83       	st	Z, r18
+
+        roundkeys -=(uint8_t)16;
+     818:	ce 01       	movw	r24, r28
+     81a:	8a 5e       	subi	r24, 0xEA	; 234
+     81c:	9e 4f       	sbci	r25, 0xFE	; 254
+     81e:	9e 01       	movw	r18, r28
+     820:	2a 5e       	subi	r18, 0xEA	; 234
+     822:	3e 4f       	sbci	r19, 0xFE	; 254
+     824:	f9 01       	movw	r30, r18
+     826:	20 81       	ld	r18, Z
+     828:	31 81       	ldd	r19, Z+1	; 0x01
+     82a:	20 51       	subi	r18, 0x10	; 16
+     82c:	31 09       	sbc	r19, r1
+     82e:	fc 01       	movw	r30, r24
+     830:	31 83       	std	Z+1, r19	; 0x01
+     832:	20 83       	st	Z, r18
+	for (i = (uint8_t)0;i<(uint8_t) AES_BLOCK_SIZE;++i) {
+       plaintext[i] = INV_SBOX[plaintext[i]];
+    }
+	
+	
+    for ( j =(uint8_t) AES_ROUNDS-(uint8_t)1;j>(uint8_t)0; --j) {
+     834:	8a 81       	ldd	r24, Y+2	; 0x02
+     836:	81 50       	subi	r24, 0x01	; 1
+     838:	8a 83       	std	Y+2, r24	; 0x02
+     83a:	8a 81       	ldd	r24, Y+2	; 0x02
+     83c:	88 23       	and	r24, r24
+     83e:	09 f0       	breq	.+2      	; 0x842 <__LOCK_REGION_LENGTH__+0x442>
+     840:	8b cd       	rjmp	.-1258   	; 0x358 <aes_decrypt_128+0x18a>
+        roundkeys -=(uint8_t)16;
+
+    }
+
+    /* last AddRoundKey*/
+    for ( i =(uint8_t) AES_BLOCK_SIZE-(uint8_t)1;i!=(uint8_t)0;i-- ) {
+     842:	8f e0       	ldi	r24, 0x0F	; 15
+     844:	89 83       	std	Y+1, r24	; 0x01
+     846:	2b c0       	rjmp	.+86     	; 0x89e <__LOCK_REGION_LENGTH__+0x49e>
+        plaintext[i] ^= roundkeys[i];
+     848:	89 81       	ldd	r24, Y+1	; 0x01
+     84a:	88 2f       	mov	r24, r24
+     84c:	90 e0       	ldi	r25, 0x00	; 0
+     84e:	9e 01       	movw	r18, r28
+     850:	26 5e       	subi	r18, 0xE6	; 230
+     852:	3e 4f       	sbci	r19, 0xFE	; 254
+     854:	f9 01       	movw	r30, r18
+     856:	20 81       	ld	r18, Z
+     858:	31 81       	ldd	r19, Z+1	; 0x01
+     85a:	82 0f       	add	r24, r18
+     85c:	93 1f       	adc	r25, r19
+     85e:	29 81       	ldd	r18, Y+1	; 0x01
+     860:	22 2f       	mov	r18, r18
+     862:	30 e0       	ldi	r19, 0x00	; 0
+     864:	ae 01       	movw	r20, r28
+     866:	46 5e       	subi	r20, 0xE6	; 230
+     868:	5e 4f       	sbci	r21, 0xFE	; 254
+     86a:	fa 01       	movw	r30, r20
+     86c:	40 81       	ld	r20, Z
+     86e:	51 81       	ldd	r21, Z+1	; 0x01
+     870:	24 0f       	add	r18, r20
+     872:	35 1f       	adc	r19, r21
+     874:	f9 01       	movw	r30, r18
+     876:	60 81       	ld	r22, Z
+     878:	29 81       	ldd	r18, Y+1	; 0x01
+     87a:	22 2f       	mov	r18, r18
+     87c:	30 e0       	ldi	r19, 0x00	; 0
+     87e:	ae 01       	movw	r20, r28
+     880:	4a 5e       	subi	r20, 0xEA	; 234
+     882:	5e 4f       	sbci	r21, 0xFE	; 254
+     884:	fa 01       	movw	r30, r20
+     886:	40 81       	ld	r20, Z
+     888:	51 81       	ldd	r21, Z+1	; 0x01
+     88a:	24 0f       	add	r18, r20
+     88c:	35 1f       	adc	r19, r21
+     88e:	f9 01       	movw	r30, r18
+     890:	20 81       	ld	r18, Z
+     892:	26 27       	eor	r18, r22
+     894:	fc 01       	movw	r30, r24
+     896:	20 83       	st	Z, r18
+        roundkeys -=(uint8_t)16;
+
+    }
+
+    /* last AddRoundKey*/
+    for ( i =(uint8_t) AES_BLOCK_SIZE-(uint8_t)1;i!=(uint8_t)0;i-- ) {
+     898:	89 81       	ldd	r24, Y+1	; 0x01
+     89a:	81 50       	subi	r24, 0x01	; 1
+     89c:	89 83       	std	Y+1, r24	; 0x01
+     89e:	89 81       	ldd	r24, Y+1	; 0x01
+     8a0:	88 23       	and	r24, r24
+     8a2:	91 f6       	brne	.-92     	; 0x848 <__LOCK_REGION_LENGTH__+0x448>
+        plaintext[i] ^= roundkeys[i];
+    }
+	 plaintext[0] ^= roundkeys[0];
+     8a4:	ce 01       	movw	r24, r28
+     8a6:	86 5e       	subi	r24, 0xE6	; 230
+     8a8:	9e 4f       	sbci	r25, 0xFE	; 254
+     8aa:	fc 01       	movw	r30, r24
+     8ac:	80 81       	ld	r24, Z
+     8ae:	91 81       	ldd	r25, Z+1	; 0x01
+     8b0:	fc 01       	movw	r30, r24
+     8b2:	20 81       	ld	r18, Z
+     8b4:	ce 01       	movw	r24, r28
+     8b6:	8a 5e       	subi	r24, 0xEA	; 234
+     8b8:	9e 4f       	sbci	r25, 0xFE	; 254
+     8ba:	fc 01       	movw	r30, r24
+     8bc:	80 81       	ld	r24, Z
+     8be:	91 81       	ldd	r25, Z+1	; 0x01
+     8c0:	fc 01       	movw	r30, r24
+     8c2:	80 81       	ld	r24, Z
+     8c4:	28 27       	eor	r18, r24
+     8c6:	ce 01       	movw	r24, r28
+     8c8:	86 5e       	subi	r24, 0xE6	; 230
+     8ca:	9e 4f       	sbci	r25, 0xFE	; 254
+     8cc:	fc 01       	movw	r30, r24
+     8ce:	80 81       	ld	r24, Z
+     8d0:	91 81       	ldd	r25, Z+1	; 0x01
+     8d2:	fc 01       	movw	r30, r24
+     8d4:	20 83       	st	Z, r18
+}
+     8d6:	00 00       	nop
+     8d8:	c5 5e       	subi	r28, 0xE5	; 229
+     8da:	de 4f       	sbci	r29, 0xFE	; 254
+     8dc:	0f b6       	in	r0, 0x3f	; 63
+     8de:	f8 94       	cli
+     8e0:	de bf       	out	0x3e, r29	; 62
+     8e2:	0f be       	out	0x3f, r0	; 63
+     8e4:	cd bf       	out	0x3d, r28	; 61
+     8e6:	df 91       	pop	r29
+     8e8:	cf 91       	pop	r28
+     8ea:	1f 91       	pop	r17
+     8ec:	0f 91       	pop	r16
+     8ee:	ff 90       	pop	r15
+     8f0:	08 95       	ret
+
+000008f2 <mul2>:
+ * by the polynomial x^8 + x^4 + x^3 + x + 1 = 0
+ * We do use mul2(int8_t a) but not mul(uint8_t a, uint8_t b)
+ * just in order to get a higher speed.
+ */
+static inline uint8_t mul2(uint8_t a);/*prototypes*/
+static inline uint8_t mul2(uint8_t a) {
+     8f2:	cf 93       	push	r28
+     8f4:	df 93       	push	r29
+     8f6:	1f 92       	push	r1
+     8f8:	cd b7       	in	r28, 0x3d	; 61
+     8fa:	de b7       	in	r29, 0x3e	; 62
+     8fc:	89 83       	std	Y+1, r24	; 0x01
+    if(a>=(uint8_t)128){
+     8fe:	89 81       	ldd	r24, Y+1	; 0x01
+     900:	88 23       	and	r24, r24
+     902:	44 f4       	brge	.+16     	; 0x914 <__stack+0x15>
+           a<<=(uint8_t)1;
+     904:	89 81       	ldd	r24, Y+1	; 0x01
+     906:	88 0f       	add	r24, r24
+     908:	89 83       	std	Y+1, r24	; 0x01
+           a^=(uint8_t)27;
+     90a:	99 81       	ldd	r25, Y+1	; 0x01
+     90c:	8b e1       	ldi	r24, 0x1B	; 27
+     90e:	89 27       	eor	r24, r25
+     910:	89 83       	std	Y+1, r24	; 0x01
+     912:	03 c0       	rjmp	.+6      	; 0x91a <__stack+0x1b>
+       }
+       else {
+          a<<= (uint8_t)1;
+     914:	89 81       	ldd	r24, Y+1	; 0x01
+     916:	88 0f       	add	r24, r24
+     918:	89 83       	std	Y+1, r24	; 0x01
+       }
+       return a;
+     91a:	89 81       	ldd	r24, Y+1	; 0x01
+
+     91c:	0f 90       	pop	r0
+     91e:	df 91       	pop	r29
+     920:	cf 91       	pop	r28
+     922:	08 95       	ret
+
+00000924 <shift_rows>:
+ *  Row0: s0  s4  s8  s12   <<< 0 byte
+ *  Row1: s1  s5  s9  s13   <<< 1 byte
+ *  Row2: s2  s6  s10 s14   <<< 2 bytes
+ *  Row3: s3  s7  s11 s15   <<< 3 bytes
+ */
+ static void shift_rows(uint8_t state[]);
+     924:	cf 93       	push	r28
+     926:	df 93       	push	r29
+     928:	00 d0       	rcall	.+0      	; 0x92a <shift_rows+0x6>
+     92a:	1f 92       	push	r1
+     92c:	cd b7       	in	r28, 0x3d	; 61
+     92e:	de b7       	in	r29, 0x3e	; 62
+     930:	9b 83       	std	Y+3, r25	; 0x03
+     932:	8a 83       	std	Y+2, r24	; 0x02
+static void shift_rows(uint8_t state[]) {
+    uint8_t temp;
+    /* row1*/
+     934:	8a 81       	ldd	r24, Y+2	; 0x02
+     936:	9b 81       	ldd	r25, Y+3	; 0x03
+     938:	fc 01       	movw	r30, r24
+     93a:	81 81       	ldd	r24, Z+1	; 0x01
+     93c:	89 83       	std	Y+1, r24	; 0x01
+    temp        = state[1];
+     93e:	8a 81       	ldd	r24, Y+2	; 0x02
+     940:	9b 81       	ldd	r25, Y+3	; 0x03
+     942:	01 96       	adiw	r24, 0x01	; 1
+     944:	2a 81       	ldd	r18, Y+2	; 0x02
+     946:	3b 81       	ldd	r19, Y+3	; 0x03
+     948:	f9 01       	movw	r30, r18
+     94a:	25 81       	ldd	r18, Z+5	; 0x05
+     94c:	fc 01       	movw	r30, r24
+     94e:	20 83       	st	Z, r18
+    state[1]  = state[5];
+     950:	8a 81       	ldd	r24, Y+2	; 0x02
+     952:	9b 81       	ldd	r25, Y+3	; 0x03
+     954:	05 96       	adiw	r24, 0x05	; 5
+     956:	2a 81       	ldd	r18, Y+2	; 0x02
+     958:	3b 81       	ldd	r19, Y+3	; 0x03
+     95a:	f9 01       	movw	r30, r18
+     95c:	21 85       	ldd	r18, Z+9	; 0x09
+     95e:	fc 01       	movw	r30, r24
+     960:	20 83       	st	Z, r18
+    state[5]  = state[9];
+     962:	8a 81       	ldd	r24, Y+2	; 0x02
+     964:	9b 81       	ldd	r25, Y+3	; 0x03
+     966:	09 96       	adiw	r24, 0x09	; 9
+     968:	2a 81       	ldd	r18, Y+2	; 0x02
+     96a:	3b 81       	ldd	r19, Y+3	; 0x03
+     96c:	f9 01       	movw	r30, r18
+     96e:	25 85       	ldd	r18, Z+13	; 0x0d
+     970:	fc 01       	movw	r30, r24
+     972:	20 83       	st	Z, r18
+    state[9]  = state[13];
+     974:	8a 81       	ldd	r24, Y+2	; 0x02
+     976:	9b 81       	ldd	r25, Y+3	; 0x03
+     978:	0d 96       	adiw	r24, 0x0d	; 13
+     97a:	29 81       	ldd	r18, Y+1	; 0x01
+     97c:	fc 01       	movw	r30, r24
+     97e:	20 83       	st	Z, r18
+    state[13] = temp;
+    /* row2*/
+     980:	8a 81       	ldd	r24, Y+2	; 0x02
+     982:	9b 81       	ldd	r25, Y+3	; 0x03
+     984:	fc 01       	movw	r30, r24
+     986:	82 81       	ldd	r24, Z+2	; 0x02
+     988:	89 83       	std	Y+1, r24	; 0x01
+    temp        = state[2];
+     98a:	8a 81       	ldd	r24, Y+2	; 0x02
+     98c:	9b 81       	ldd	r25, Y+3	; 0x03
+     98e:	02 96       	adiw	r24, 0x02	; 2
+     990:	2a 81       	ldd	r18, Y+2	; 0x02
+     992:	3b 81       	ldd	r19, Y+3	; 0x03
+     994:	f9 01       	movw	r30, r18
+     996:	22 85       	ldd	r18, Z+10	; 0x0a
+     998:	fc 01       	movw	r30, r24
+     99a:	20 83       	st	Z, r18
+    state[2]  = state[10];
+     99c:	8a 81       	ldd	r24, Y+2	; 0x02
+     99e:	9b 81       	ldd	r25, Y+3	; 0x03
+     9a0:	0a 96       	adiw	r24, 0x0a	; 10
+     9a2:	29 81       	ldd	r18, Y+1	; 0x01
+     9a4:	fc 01       	movw	r30, r24
+     9a6:	20 83       	st	Z, r18
+    state[10] = temp;
+     9a8:	8a 81       	ldd	r24, Y+2	; 0x02
+     9aa:	9b 81       	ldd	r25, Y+3	; 0x03
+     9ac:	fc 01       	movw	r30, r24
+     9ae:	86 81       	ldd	r24, Z+6	; 0x06
+     9b0:	89 83       	std	Y+1, r24	; 0x01
+    temp        = state[6];
+     9b2:	8a 81       	ldd	r24, Y+2	; 0x02
+     9b4:	9b 81       	ldd	r25, Y+3	; 0x03
+     9b6:	06 96       	adiw	r24, 0x06	; 6
+     9b8:	2a 81       	ldd	r18, Y+2	; 0x02
+     9ba:	3b 81       	ldd	r19, Y+3	; 0x03
+     9bc:	f9 01       	movw	r30, r18
+     9be:	26 85       	ldd	r18, Z+14	; 0x0e
+     9c0:	fc 01       	movw	r30, r24
+     9c2:	20 83       	st	Z, r18
+    state[6]  = state[14];
+     9c4:	8a 81       	ldd	r24, Y+2	; 0x02
+     9c6:	9b 81       	ldd	r25, Y+3	; 0x03
+     9c8:	0e 96       	adiw	r24, 0x0e	; 14
+     9ca:	29 81       	ldd	r18, Y+1	; 0x01
+     9cc:	fc 01       	movw	r30, r24
+     9ce:	20 83       	st	Z, r18
+    state[14] = temp;
+    /* row3*/
+     9d0:	8a 81       	ldd	r24, Y+2	; 0x02
+     9d2:	9b 81       	ldd	r25, Y+3	; 0x03
+     9d4:	fc 01       	movw	r30, r24
+     9d6:	87 85       	ldd	r24, Z+15	; 0x0f
+     9d8:	89 83       	std	Y+1, r24	; 0x01
+    temp        = state[15];
+     9da:	8a 81       	ldd	r24, Y+2	; 0x02
+     9dc:	9b 81       	ldd	r25, Y+3	; 0x03
+     9de:	0f 96       	adiw	r24, 0x0f	; 15
+     9e0:	2a 81       	ldd	r18, Y+2	; 0x02
+     9e2:	3b 81       	ldd	r19, Y+3	; 0x03
+     9e4:	f9 01       	movw	r30, r18
+     9e6:	23 85       	ldd	r18, Z+11	; 0x0b
+     9e8:	fc 01       	movw	r30, r24
+     9ea:	20 83       	st	Z, r18
+    state[15] = state[11];
+     9ec:	8a 81       	ldd	r24, Y+2	; 0x02
+     9ee:	9b 81       	ldd	r25, Y+3	; 0x03
+     9f0:	0b 96       	adiw	r24, 0x0b	; 11
+     9f2:	2a 81       	ldd	r18, Y+2	; 0x02
+     9f4:	3b 81       	ldd	r19, Y+3	; 0x03
+     9f6:	f9 01       	movw	r30, r18
+     9f8:	27 81       	ldd	r18, Z+7	; 0x07
+     9fa:	fc 01       	movw	r30, r24
+     9fc:	20 83       	st	Z, r18
+    state[11] = state[7];
+     9fe:	8a 81       	ldd	r24, Y+2	; 0x02
+     a00:	9b 81       	ldd	r25, Y+3	; 0x03
+     a02:	07 96       	adiw	r24, 0x07	; 7
+     a04:	2a 81       	ldd	r18, Y+2	; 0x02
+     a06:	3b 81       	ldd	r19, Y+3	; 0x03
+     a08:	f9 01       	movw	r30, r18
+     a0a:	23 81       	ldd	r18, Z+3	; 0x03
+     a0c:	fc 01       	movw	r30, r24
+     a0e:	20 83       	st	Z, r18
+    state[7]  = state[3];
+     a10:	8a 81       	ldd	r24, Y+2	; 0x02
+     a12:	9b 81       	ldd	r25, Y+3	; 0x03
+     a14:	03 96       	adiw	r24, 0x03	; 3
+     a16:	29 81       	ldd	r18, Y+1	; 0x01
+     a18:	fc 01       	movw	r30, r24
+     a1a:	20 83       	st	Z, r18
+    state[3]  = temp;
+     a1c:	00 00       	nop
+     a1e:	0f 90       	pop	r0
+     a20:	0f 90       	pop	r0
+     a22:	0f 90       	pop	r0
+     a24:	df 91       	pop	r29
+     a26:	cf 91       	pop	r28
+     a28:	08 95       	ret
+
+00000a2a <aes_encrypt_128>:
+}
+
+     a2a:	0f 93       	push	r16
+     a2c:	1f 93       	push	r17
+     a2e:	cf 93       	push	r28
+     a30:	df 93       	push	r29
+     a32:	cd b7       	in	r28, 0x3d	; 61
+     a34:	de b7       	in	r29, 0x3e	; 62
+     a36:	69 97       	sbiw	r28, 0x19	; 25
+     a38:	0f b6       	in	r0, 0x3f	; 63
+     a3a:	f8 94       	cli
+     a3c:	de bf       	out	0x3e, r29	; 62
+     a3e:	0f be       	out	0x3f, r0	; 63
+     a40:	cd bf       	out	0x3d, r28	; 61
+     a42:	9d 8b       	std	Y+21, r25	; 0x15
+     a44:	8c 8b       	std	Y+20, r24	; 0x14
+     a46:	7f 8b       	std	Y+23, r23	; 0x17
+     a48:	6e 8b       	std	Y+22, r22	; 0x16
+     a4a:	59 8f       	std	Y+25, r21	; 0x19
+     a4c:	48 8f       	std	Y+24, r20	; 0x18
+void aes_encrypt_128(const uint8_t  *roundkeys, const uint8_t plaintext[], uint8_t ciphertext[]) {
+
+    uint8_t tmp[16], t;
+    uint8_t i, j;
+
+    /* first AddRoundKey */
+     a4e:	19 82       	std	Y+1, r1	; 0x01
+     a50:	1f c0       	rjmp	.+62     	; 0xa90 <aes_encrypt_128+0x66>
+    for (i=0u; i<(uint8_t) AES_BLOCK_SIZE; ++i ) {
+     a52:	89 81       	ldd	r24, Y+1	; 0x01
+     a54:	88 2f       	mov	r24, r24
+     a56:	90 e0       	ldi	r25, 0x00	; 0
+     a58:	28 8d       	ldd	r18, Y+24	; 0x18
+     a5a:	39 8d       	ldd	r19, Y+25	; 0x19
+     a5c:	82 0f       	add	r24, r18
+     a5e:	93 1f       	adc	r25, r19
+     a60:	29 81       	ldd	r18, Y+1	; 0x01
+     a62:	22 2f       	mov	r18, r18
+     a64:	30 e0       	ldi	r19, 0x00	; 0
+     a66:	4e 89       	ldd	r20, Y+22	; 0x16
+     a68:	5f 89       	ldd	r21, Y+23	; 0x17
+     a6a:	24 0f       	add	r18, r20
+     a6c:	35 1f       	adc	r19, r21
+     a6e:	f9 01       	movw	r30, r18
+     a70:	40 81       	ld	r20, Z
+     a72:	2c 89       	ldd	r18, Y+20	; 0x14
+     a74:	3d 89       	ldd	r19, Y+21	; 0x15
+     a76:	f9 01       	movw	r30, r18
+     a78:	20 81       	ld	r18, Z
+     a7a:	24 27       	eor	r18, r20
+     a7c:	fc 01       	movw	r30, r24
+     a7e:	20 83       	st	Z, r18
+        ciphertext[i] = plaintext[i] ^ *roundkeys;
+     a80:	8c 89       	ldd	r24, Y+20	; 0x14
+     a82:	9d 89       	ldd	r25, Y+21	; 0x15
+     a84:	01 96       	adiw	r24, 0x01	; 1
+     a86:	9d 8b       	std	Y+21, r25	; 0x15
+     a88:	8c 8b       	std	Y+20, r24	; 0x14
+void aes_encrypt_128(const uint8_t  *roundkeys, const uint8_t plaintext[], uint8_t ciphertext[]) {
+
+    uint8_t tmp[16], t;
+    uint8_t i, j;
+
+    /* first AddRoundKey */
+     a8a:	89 81       	ldd	r24, Y+1	; 0x01
+     a8c:	8f 5f       	subi	r24, 0xFF	; 255
+     a8e:	89 83       	std	Y+1, r24	; 0x01
+     a90:	89 81       	ldd	r24, Y+1	; 0x01
+     a92:	80 31       	cpi	r24, 0x10	; 16
+     a94:	f0 f2       	brcs	.-68     	; 0xa52 <aes_encrypt_128+0x28>
+        ciphertext[i] = plaintext[i] ^ *roundkeys;
+        roundkeys +=1;
+    }
+	
+
+    /* 9 rounds*/
+     a96:	89 e0       	ldi	r24, 0x09	; 9
+     a98:	8a 83       	std	Y+2, r24	; 0x02
+     a9a:	5c c1       	rjmp	.+696    	; 0xd54 <aes_encrypt_128+0x32a>
+    for (j=(uint8_t) AES_ROUNDS-(uint8_t)1;j!=(uint8_t)0; --j) {
+
+        /* SubBytes*/
+     a9c:	8f e0       	ldi	r24, 0x0F	; 15
+     a9e:	89 83       	std	Y+1, r24	; 0x01
+     aa0:	1c c0       	rjmp	.+56     	; 0xada <aes_encrypt_128+0xb0>
+        for ( i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i != (uint8_t)0;i--) {
+     aa2:	89 81       	ldd	r24, Y+1	; 0x01
+     aa4:	88 2f       	mov	r24, r24
+     aa6:	90 e0       	ldi	r25, 0x00	; 0
+     aa8:	29 81       	ldd	r18, Y+1	; 0x01
+     aaa:	22 2f       	mov	r18, r18
+     aac:	30 e0       	ldi	r19, 0x00	; 0
+     aae:	48 8d       	ldd	r20, Y+24	; 0x18
+     ab0:	59 8d       	ldd	r21, Y+25	; 0x19
+     ab2:	24 0f       	add	r18, r20
+     ab4:	35 1f       	adc	r19, r21
+     ab6:	f9 01       	movw	r30, r18
+     ab8:	20 81       	ld	r18, Z
+     aba:	22 2f       	mov	r18, r18
+     abc:	30 e0       	ldi	r19, 0x00	; 0
+     abe:	20 50       	subi	r18, 0x00	; 0
+     ac0:	3f 4f       	sbci	r19, 0xFF	; 255
+     ac2:	f9 01       	movw	r30, r18
+     ac4:	40 81       	ld	r20, Z
+     ac6:	9e 01       	movw	r18, r28
+     ac8:	2c 5f       	subi	r18, 0xFC	; 252
+     aca:	3f 4f       	sbci	r19, 0xFF	; 255
+     acc:	82 0f       	add	r24, r18
+     ace:	93 1f       	adc	r25, r19
+     ad0:	fc 01       	movw	r30, r24
+     ad2:	40 83       	st	Z, r20
+	
+
+    /* 9 rounds*/
+    for (j=(uint8_t) AES_ROUNDS-(uint8_t)1;j!=(uint8_t)0; --j) {
+
+        /* SubBytes*/
+     ad4:	89 81       	ldd	r24, Y+1	; 0x01
+     ad6:	81 50       	subi	r24, 0x01	; 1
+     ad8:	89 83       	std	Y+1, r24	; 0x01
+     ada:	89 81       	ldd	r24, Y+1	; 0x01
+     adc:	88 23       	and	r24, r24
+     ade:	09 f7       	brne	.-62     	; 0xaa2 <aes_encrypt_128+0x78>
+        for ( i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i != (uint8_t)0;i--) {
+            tmp[i] = SBOX[ciphertext[i]];
+        }
+     ae0:	88 8d       	ldd	r24, Y+24	; 0x18
+     ae2:	99 8d       	ldd	r25, Y+25	; 0x19
+     ae4:	fc 01       	movw	r30, r24
+     ae6:	80 81       	ld	r24, Z
+     ae8:	88 2f       	mov	r24, r24
+     aea:	90 e0       	ldi	r25, 0x00	; 0
+     aec:	80 50       	subi	r24, 0x00	; 0
+     aee:	9f 4f       	sbci	r25, 0xFF	; 255
+     af0:	fc 01       	movw	r30, r24
+     af2:	80 81       	ld	r24, Z
+     af4:	8c 83       	std	Y+4, r24	; 0x04
+		 tmp[0] = SBOX[ciphertext[0]];
+     af6:	ce 01       	movw	r24, r28
+     af8:	04 96       	adiw	r24, 0x04	; 4
+     afa:	0e 94 92 04 	call	0x924	; 0x924 <shift_rows>
+         * MixColumns 
+         * [02 03 01 01]   [s0  s4  s8  s12]
+         * [01 02 03 01] . [s1  s5  s9  s13]
+         * [01 01 02 03]   [s2  s6  s10 s14]
+         * [03 01 01 02]   [s3  s7  s11 s15]
+         */
+     afe:	19 82       	std	Y+1, r1	; 0x01
+     b00:	fe c0       	rjmp	.+508    	; 0xcfe <aes_encrypt_128+0x2d4>
+        for (i =(uint8_t) 0; i <(uint8_t) AES_BLOCK_SIZE; i+=(uint8_t)4)  {
+     b02:	89 81       	ldd	r24, Y+1	; 0x01
+     b04:	88 2f       	mov	r24, r24
+     b06:	90 e0       	ldi	r25, 0x00	; 0
+     b08:	9e 01       	movw	r18, r28
+     b0a:	2c 5f       	subi	r18, 0xFC	; 252
+     b0c:	3f 4f       	sbci	r19, 0xFF	; 255
+     b0e:	82 0f       	add	r24, r18
+     b10:	93 1f       	adc	r25, r19
+     b12:	fc 01       	movw	r30, r24
+     b14:	40 81       	ld	r20, Z
+     b16:	89 81       	ldd	r24, Y+1	; 0x01
+     b18:	88 2f       	mov	r24, r24
+     b1a:	90 e0       	ldi	r25, 0x00	; 0
+     b1c:	01 96       	adiw	r24, 0x01	; 1
+     b1e:	9e 01       	movw	r18, r28
+     b20:	2c 5f       	subi	r18, 0xFC	; 252
+     b22:	3f 4f       	sbci	r19, 0xFF	; 255
+     b24:	82 0f       	add	r24, r18
+     b26:	93 1f       	adc	r25, r19
+     b28:	fc 01       	movw	r30, r24
+     b2a:	80 81       	ld	r24, Z
+     b2c:	48 27       	eor	r20, r24
+     b2e:	89 81       	ldd	r24, Y+1	; 0x01
+     b30:	88 2f       	mov	r24, r24
+     b32:	90 e0       	ldi	r25, 0x00	; 0
+     b34:	02 96       	adiw	r24, 0x02	; 2
+     b36:	9e 01       	movw	r18, r28
+     b38:	2c 5f       	subi	r18, 0xFC	; 252
+     b3a:	3f 4f       	sbci	r19, 0xFF	; 255
+     b3c:	82 0f       	add	r24, r18
+     b3e:	93 1f       	adc	r25, r19
+     b40:	fc 01       	movw	r30, r24
+     b42:	80 81       	ld	r24, Z
+     b44:	48 27       	eor	r20, r24
+     b46:	89 81       	ldd	r24, Y+1	; 0x01
+     b48:	88 2f       	mov	r24, r24
+     b4a:	90 e0       	ldi	r25, 0x00	; 0
+     b4c:	03 96       	adiw	r24, 0x03	; 3
+     b4e:	9e 01       	movw	r18, r28
+     b50:	2c 5f       	subi	r18, 0xFC	; 252
+     b52:	3f 4f       	sbci	r19, 0xFF	; 255
+     b54:	82 0f       	add	r24, r18
+     b56:	93 1f       	adc	r25, r19
+     b58:	fc 01       	movw	r30, r24
+     b5a:	80 81       	ld	r24, Z
+     b5c:	84 27       	eor	r24, r20
+     b5e:	8b 83       	std	Y+3, r24	; 0x03
+            t = tmp[i] ^ tmp[i+1u] ^ tmp[i+2u] ^ tmp[i+3u];
+     b60:	89 81       	ldd	r24, Y+1	; 0x01
+     b62:	88 2f       	mov	r24, r24
+     b64:	90 e0       	ldi	r25, 0x00	; 0
+     b66:	28 8d       	ldd	r18, Y+24	; 0x18
+     b68:	39 8d       	ldd	r19, Y+25	; 0x19
+     b6a:	89 01       	movw	r16, r18
+     b6c:	08 0f       	add	r16, r24
+     b6e:	19 1f       	adc	r17, r25
+     b70:	89 81       	ldd	r24, Y+1	; 0x01
+     b72:	88 2f       	mov	r24, r24
+     b74:	90 e0       	ldi	r25, 0x00	; 0
+     b76:	9e 01       	movw	r18, r28
+     b78:	2c 5f       	subi	r18, 0xFC	; 252
+     b7a:	3f 4f       	sbci	r19, 0xFF	; 255
+     b7c:	82 0f       	add	r24, r18
+     b7e:	93 1f       	adc	r25, r19
+     b80:	fc 01       	movw	r30, r24
+     b82:	40 81       	ld	r20, Z
+     b84:	89 81       	ldd	r24, Y+1	; 0x01
+     b86:	88 2f       	mov	r24, r24
+     b88:	90 e0       	ldi	r25, 0x00	; 0
+     b8a:	01 96       	adiw	r24, 0x01	; 1
+     b8c:	9e 01       	movw	r18, r28
+     b8e:	2c 5f       	subi	r18, 0xFC	; 252
+     b90:	3f 4f       	sbci	r19, 0xFF	; 255
+     b92:	82 0f       	add	r24, r18
+     b94:	93 1f       	adc	r25, r19
+     b96:	fc 01       	movw	r30, r24
+     b98:	80 81       	ld	r24, Z
+     b9a:	84 27       	eor	r24, r20
+     b9c:	0e 94 79 04 	call	0x8f2	; 0x8f2 <mul2>
+     ba0:	48 2f       	mov	r20, r24
+     ba2:	89 81       	ldd	r24, Y+1	; 0x01
+     ba4:	88 2f       	mov	r24, r24
+     ba6:	90 e0       	ldi	r25, 0x00	; 0
+     ba8:	9e 01       	movw	r18, r28
+     baa:	2c 5f       	subi	r18, 0xFC	; 252
+     bac:	3f 4f       	sbci	r19, 0xFF	; 255
+     bae:	82 0f       	add	r24, r18
+     bb0:	93 1f       	adc	r25, r19
+     bb2:	fc 01       	movw	r30, r24
+     bb4:	80 81       	ld	r24, Z
+     bb6:	94 2f       	mov	r25, r20
+     bb8:	98 27       	eor	r25, r24
+     bba:	8b 81       	ldd	r24, Y+3	; 0x03
+     bbc:	89 27       	eor	r24, r25
+     bbe:	f8 01       	movw	r30, r16
+     bc0:	80 83       	st	Z, r24
+            ciphertext[i]   = mul2(tmp[i] ^ tmp[i+1u]) ^ tmp[i]   ^ t;
+     bc2:	89 81       	ldd	r24, Y+1	; 0x01
+     bc4:	88 2f       	mov	r24, r24
+     bc6:	90 e0       	ldi	r25, 0x00	; 0
+     bc8:	01 96       	adiw	r24, 0x01	; 1
+     bca:	28 8d       	ldd	r18, Y+24	; 0x18
+     bcc:	39 8d       	ldd	r19, Y+25	; 0x19
+     bce:	89 01       	movw	r16, r18
+     bd0:	08 0f       	add	r16, r24
+     bd2:	19 1f       	adc	r17, r25
+     bd4:	89 81       	ldd	r24, Y+1	; 0x01
+     bd6:	88 2f       	mov	r24, r24
+     bd8:	90 e0       	ldi	r25, 0x00	; 0
+     bda:	01 96       	adiw	r24, 0x01	; 1
+     bdc:	9e 01       	movw	r18, r28
+     bde:	2c 5f       	subi	r18, 0xFC	; 252
+     be0:	3f 4f       	sbci	r19, 0xFF	; 255
+     be2:	82 0f       	add	r24, r18
+     be4:	93 1f       	adc	r25, r19
+     be6:	fc 01       	movw	r30, r24
+     be8:	40 81       	ld	r20, Z
+     bea:	89 81       	ldd	r24, Y+1	; 0x01
+     bec:	88 2f       	mov	r24, r24
+     bee:	90 e0       	ldi	r25, 0x00	; 0
+     bf0:	02 96       	adiw	r24, 0x02	; 2
+     bf2:	9e 01       	movw	r18, r28
+     bf4:	2c 5f       	subi	r18, 0xFC	; 252
+     bf6:	3f 4f       	sbci	r19, 0xFF	; 255
+     bf8:	82 0f       	add	r24, r18
+     bfa:	93 1f       	adc	r25, r19
+     bfc:	fc 01       	movw	r30, r24
+     bfe:	80 81       	ld	r24, Z
+     c00:	84 27       	eor	r24, r20
+     c02:	0e 94 79 04 	call	0x8f2	; 0x8f2 <mul2>
+     c06:	48 2f       	mov	r20, r24
+     c08:	89 81       	ldd	r24, Y+1	; 0x01
+     c0a:	88 2f       	mov	r24, r24
+     c0c:	90 e0       	ldi	r25, 0x00	; 0
+     c0e:	01 96       	adiw	r24, 0x01	; 1
+     c10:	9e 01       	movw	r18, r28
+     c12:	2c 5f       	subi	r18, 0xFC	; 252
+     c14:	3f 4f       	sbci	r19, 0xFF	; 255
+     c16:	82 0f       	add	r24, r18
+     c18:	93 1f       	adc	r25, r19
+     c1a:	fc 01       	movw	r30, r24
+     c1c:	80 81       	ld	r24, Z
+     c1e:	94 2f       	mov	r25, r20
+     c20:	98 27       	eor	r25, r24
+     c22:	8b 81       	ldd	r24, Y+3	; 0x03
+     c24:	89 27       	eor	r24, r25
+     c26:	f8 01       	movw	r30, r16
+     c28:	80 83       	st	Z, r24
+            ciphertext[i+1u] = mul2(tmp[i+1u] ^ tmp[i+2u]) ^ tmp[i+1u] ^ t;
+     c2a:	89 81       	ldd	r24, Y+1	; 0x01
+     c2c:	88 2f       	mov	r24, r24
+     c2e:	90 e0       	ldi	r25, 0x00	; 0
+     c30:	02 96       	adiw	r24, 0x02	; 2
+     c32:	28 8d       	ldd	r18, Y+24	; 0x18
+     c34:	39 8d       	ldd	r19, Y+25	; 0x19
+     c36:	89 01       	movw	r16, r18
+     c38:	08 0f       	add	r16, r24
+     c3a:	19 1f       	adc	r17, r25
+     c3c:	89 81       	ldd	r24, Y+1	; 0x01
+     c3e:	88 2f       	mov	r24, r24
+     c40:	90 e0       	ldi	r25, 0x00	; 0
+     c42:	02 96       	adiw	r24, 0x02	; 2
+     c44:	9e 01       	movw	r18, r28
+     c46:	2c 5f       	subi	r18, 0xFC	; 252
+     c48:	3f 4f       	sbci	r19, 0xFF	; 255
+     c4a:	82 0f       	add	r24, r18
+     c4c:	93 1f       	adc	r25, r19
+     c4e:	fc 01       	movw	r30, r24
+     c50:	40 81       	ld	r20, Z
+     c52:	89 81       	ldd	r24, Y+1	; 0x01
+     c54:	88 2f       	mov	r24, r24
+     c56:	90 e0       	ldi	r25, 0x00	; 0
+     c58:	03 96       	adiw	r24, 0x03	; 3
+     c5a:	9e 01       	movw	r18, r28
+     c5c:	2c 5f       	subi	r18, 0xFC	; 252
+     c5e:	3f 4f       	sbci	r19, 0xFF	; 255
+     c60:	82 0f       	add	r24, r18
+     c62:	93 1f       	adc	r25, r19
+     c64:	fc 01       	movw	r30, r24
+     c66:	80 81       	ld	r24, Z
+     c68:	84 27       	eor	r24, r20
+     c6a:	0e 94 79 04 	call	0x8f2	; 0x8f2 <mul2>
+     c6e:	48 2f       	mov	r20, r24
+     c70:	89 81       	ldd	r24, Y+1	; 0x01
+     c72:	88 2f       	mov	r24, r24
+     c74:	90 e0       	ldi	r25, 0x00	; 0
+     c76:	02 96       	adiw	r24, 0x02	; 2
+     c78:	9e 01       	movw	r18, r28
+     c7a:	2c 5f       	subi	r18, 0xFC	; 252
+     c7c:	3f 4f       	sbci	r19, 0xFF	; 255
+     c7e:	82 0f       	add	r24, r18
+     c80:	93 1f       	adc	r25, r19
+     c82:	fc 01       	movw	r30, r24
+     c84:	80 81       	ld	r24, Z
+     c86:	94 2f       	mov	r25, r20
+     c88:	98 27       	eor	r25, r24
+     c8a:	8b 81       	ldd	r24, Y+3	; 0x03
+     c8c:	89 27       	eor	r24, r25
+     c8e:	f8 01       	movw	r30, r16
+     c90:	80 83       	st	Z, r24
+            ciphertext[i+2u] = mul2(tmp[i+2u] ^ tmp[i+3u]) ^ tmp[i+2u] ^ t;
+     c92:	89 81       	ldd	r24, Y+1	; 0x01
+     c94:	88 2f       	mov	r24, r24
+     c96:	90 e0       	ldi	r25, 0x00	; 0
+     c98:	03 96       	adiw	r24, 0x03	; 3
+     c9a:	28 8d       	ldd	r18, Y+24	; 0x18
+     c9c:	39 8d       	ldd	r19, Y+25	; 0x19
+     c9e:	89 01       	movw	r16, r18
+     ca0:	08 0f       	add	r16, r24
+     ca2:	19 1f       	adc	r17, r25
+     ca4:	89 81       	ldd	r24, Y+1	; 0x01
+     ca6:	88 2f       	mov	r24, r24
+     ca8:	90 e0       	ldi	r25, 0x00	; 0
+     caa:	03 96       	adiw	r24, 0x03	; 3
+     cac:	9e 01       	movw	r18, r28
+     cae:	2c 5f       	subi	r18, 0xFC	; 252
+     cb0:	3f 4f       	sbci	r19, 0xFF	; 255
+     cb2:	82 0f       	add	r24, r18
+     cb4:	93 1f       	adc	r25, r19
+     cb6:	fc 01       	movw	r30, r24
+     cb8:	40 81       	ld	r20, Z
+     cba:	89 81       	ldd	r24, Y+1	; 0x01
+     cbc:	88 2f       	mov	r24, r24
+     cbe:	90 e0       	ldi	r25, 0x00	; 0
+     cc0:	9e 01       	movw	r18, r28
+     cc2:	2c 5f       	subi	r18, 0xFC	; 252
+     cc4:	3f 4f       	sbci	r19, 0xFF	; 255
+     cc6:	82 0f       	add	r24, r18
+     cc8:	93 1f       	adc	r25, r19
+     cca:	fc 01       	movw	r30, r24
+     ccc:	80 81       	ld	r24, Z
+     cce:	84 27       	eor	r24, r20
+     cd0:	0e 94 79 04 	call	0x8f2	; 0x8f2 <mul2>
+     cd4:	48 2f       	mov	r20, r24
+     cd6:	89 81       	ldd	r24, Y+1	; 0x01
+     cd8:	88 2f       	mov	r24, r24
+     cda:	90 e0       	ldi	r25, 0x00	; 0
+     cdc:	03 96       	adiw	r24, 0x03	; 3
+     cde:	9e 01       	movw	r18, r28
+     ce0:	2c 5f       	subi	r18, 0xFC	; 252
+     ce2:	3f 4f       	sbci	r19, 0xFF	; 255
+     ce4:	82 0f       	add	r24, r18
+     ce6:	93 1f       	adc	r25, r19
+     ce8:	fc 01       	movw	r30, r24
+     cea:	80 81       	ld	r24, Z
+     cec:	94 2f       	mov	r25, r20
+     cee:	98 27       	eor	r25, r24
+     cf0:	8b 81       	ldd	r24, Y+3	; 0x03
+     cf2:	89 27       	eor	r24, r25
+     cf4:	f8 01       	movw	r30, r16
+     cf6:	80 83       	st	Z, r24
+         * MixColumns 
+         * [02 03 01 01]   [s0  s4  s8  s12]
+         * [01 02 03 01] . [s1  s5  s9  s13]
+         * [01 01 02 03]   [s2  s6  s10 s14]
+         * [03 01 01 02]   [s3  s7  s11 s15]
+         */
+     cf8:	89 81       	ldd	r24, Y+1	; 0x01
+     cfa:	8c 5f       	subi	r24, 0xFC	; 252
+     cfc:	89 83       	std	Y+1, r24	; 0x01
+     cfe:	89 81       	ldd	r24, Y+1	; 0x01
+     d00:	80 31       	cpi	r24, 0x10	; 16
+     d02:	08 f4       	brcc	.+2      	; 0xd06 <aes_encrypt_128+0x2dc>
+     d04:	fe ce       	rjmp	.-516    	; 0xb02 <aes_encrypt_128+0xd8>
+            ciphertext[i+1u] = mul2(tmp[i+1u] ^ tmp[i+2u]) ^ tmp[i+1u] ^ t;
+            ciphertext[i+2u] = mul2(tmp[i+2u] ^ tmp[i+3u]) ^ tmp[i+2u] ^ t;
+            ciphertext[i+3u] = mul2(tmp[i+3u] ^ tmp[i]  ) ^ tmp[i+3u] ^ t;
+        }
+
+        /* AddRoundKey*/
+     d06:	19 82       	std	Y+1, r1	; 0x01
+     d08:	1f c0       	rjmp	.+62     	; 0xd48 <aes_encrypt_128+0x31e>
+        for (i=(uint8_t)0;i<(uint8_t) AES_BLOCK_SIZE; ++i ) {
+     d0a:	89 81       	ldd	r24, Y+1	; 0x01
+     d0c:	88 2f       	mov	r24, r24
+     d0e:	90 e0       	ldi	r25, 0x00	; 0
+     d10:	28 8d       	ldd	r18, Y+24	; 0x18
+     d12:	39 8d       	ldd	r19, Y+25	; 0x19
+     d14:	82 0f       	add	r24, r18
+     d16:	93 1f       	adc	r25, r19
+     d18:	29 81       	ldd	r18, Y+1	; 0x01
+     d1a:	22 2f       	mov	r18, r18
+     d1c:	30 e0       	ldi	r19, 0x00	; 0
+     d1e:	48 8d       	ldd	r20, Y+24	; 0x18
+     d20:	59 8d       	ldd	r21, Y+25	; 0x19
+     d22:	24 0f       	add	r18, r20
+     d24:	35 1f       	adc	r19, r21
+     d26:	f9 01       	movw	r30, r18
+     d28:	40 81       	ld	r20, Z
+     d2a:	2c 89       	ldd	r18, Y+20	; 0x14
+     d2c:	3d 89       	ldd	r19, Y+21	; 0x15
+     d2e:	f9 01       	movw	r30, r18
+     d30:	20 81       	ld	r18, Z
+     d32:	24 27       	eor	r18, r20
+     d34:	fc 01       	movw	r30, r24
+     d36:	20 83       	st	Z, r18
+            ciphertext[i] ^= *roundkeys;
+     d38:	8c 89       	ldd	r24, Y+20	; 0x14
+     d3a:	9d 89       	ldd	r25, Y+21	; 0x15
+     d3c:	01 96       	adiw	r24, 0x01	; 1
+     d3e:	9d 8b       	std	Y+21, r25	; 0x15
+     d40:	8c 8b       	std	Y+20, r24	; 0x14
+            ciphertext[i+1u] = mul2(tmp[i+1u] ^ tmp[i+2u]) ^ tmp[i+1u] ^ t;
+            ciphertext[i+2u] = mul2(tmp[i+2u] ^ tmp[i+3u]) ^ tmp[i+2u] ^ t;
+            ciphertext[i+3u] = mul2(tmp[i+3u] ^ tmp[i]  ) ^ tmp[i+3u] ^ t;
+        }
+
+        /* AddRoundKey*/
+     d42:	89 81       	ldd	r24, Y+1	; 0x01
+     d44:	8f 5f       	subi	r24, 0xFF	; 255
+     d46:	89 83       	std	Y+1, r24	; 0x01
+     d48:	89 81       	ldd	r24, Y+1	; 0x01
+     d4a:	80 31       	cpi	r24, 0x10	; 16
+     d4c:	f0 f2       	brcs	.-68     	; 0xd0a <aes_encrypt_128+0x2e0>
+        ciphertext[i] = plaintext[i] ^ *roundkeys;
+        roundkeys +=1;
+    }
+	
+
+    /* 9 rounds*/
+     d4e:	8a 81       	ldd	r24, Y+2	; 0x02
+     d50:	81 50       	subi	r24, 0x01	; 1
+     d52:	8a 83       	std	Y+2, r24	; 0x02
+     d54:	8a 81       	ldd	r24, Y+2	; 0x02
+     d56:	88 23       	and	r24, r24
+     d58:	09 f0       	breq	.+2      	; 0xd5c <aes_encrypt_128+0x332>
+     d5a:	a0 ce       	rjmp	.-704    	; 0xa9c <aes_encrypt_128+0x72>
+        }
+		 
+
+    }
+    
+    /* last round*/
+     d5c:	8f e0       	ldi	r24, 0x0F	; 15
+     d5e:	89 83       	std	Y+1, r24	; 0x01
+     d60:	1b c0       	rjmp	.+54     	; 0xd98 <aes_encrypt_128+0x36e>
+    for ( i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i !=(uint8_t)0;i--) {
+     d62:	89 81       	ldd	r24, Y+1	; 0x01
+     d64:	88 2f       	mov	r24, r24
+     d66:	90 e0       	ldi	r25, 0x00	; 0
+     d68:	28 8d       	ldd	r18, Y+24	; 0x18
+     d6a:	39 8d       	ldd	r19, Y+25	; 0x19
+     d6c:	82 0f       	add	r24, r18
+     d6e:	93 1f       	adc	r25, r19
+     d70:	29 81       	ldd	r18, Y+1	; 0x01
+     d72:	22 2f       	mov	r18, r18
+     d74:	30 e0       	ldi	r19, 0x00	; 0
+     d76:	48 8d       	ldd	r20, Y+24	; 0x18
+     d78:	59 8d       	ldd	r21, Y+25	; 0x19
+     d7a:	24 0f       	add	r18, r20
+     d7c:	35 1f       	adc	r19, r21
+     d7e:	f9 01       	movw	r30, r18
+     d80:	20 81       	ld	r18, Z
+     d82:	22 2f       	mov	r18, r18
+     d84:	30 e0       	ldi	r19, 0x00	; 0
+     d86:	20 50       	subi	r18, 0x00	; 0
+     d88:	3f 4f       	sbci	r19, 0xFF	; 255
+     d8a:	f9 01       	movw	r30, r18
+     d8c:	20 81       	ld	r18, Z
+     d8e:	fc 01       	movw	r30, r24
+     d90:	20 83       	st	Z, r18
+        }
+		 
+
+    }
+    
+    /* last round*/
+     d92:	89 81       	ldd	r24, Y+1	; 0x01
+     d94:	81 50       	subi	r24, 0x01	; 1
+     d96:	89 83       	std	Y+1, r24	; 0x01
+     d98:	89 81       	ldd	r24, Y+1	; 0x01
+     d9a:	88 23       	and	r24, r24
+     d9c:	11 f7       	brne	.-60     	; 0xd62 <aes_encrypt_128+0x338>
+    for ( i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i !=(uint8_t)0;i--) {
+        ciphertext[i] = SBOX[ciphertext[i]];
+    }
+     d9e:	88 8d       	ldd	r24, Y+24	; 0x18
+     da0:	99 8d       	ldd	r25, Y+25	; 0x19
+     da2:	fc 01       	movw	r30, r24
+     da4:	80 81       	ld	r24, Z
+     da6:	88 2f       	mov	r24, r24
+     da8:	90 e0       	ldi	r25, 0x00	; 0
+     daa:	80 50       	subi	r24, 0x00	; 0
+     dac:	9f 4f       	sbci	r25, 0xFF	; 255
+     dae:	fc 01       	movw	r30, r24
+     db0:	20 81       	ld	r18, Z
+     db2:	88 8d       	ldd	r24, Y+24	; 0x18
+     db4:	99 8d       	ldd	r25, Y+25	; 0x19
+     db6:	fc 01       	movw	r30, r24
+     db8:	20 83       	st	Z, r18
+	 ciphertext[0] = SBOX[ciphertext[0]];
+     dba:	88 8d       	ldd	r24, Y+24	; 0x18
+     dbc:	99 8d       	ldd	r25, Y+25	; 0x19
+     dbe:	0e 94 92 04 	call	0x924	; 0x924 <shift_rows>
+    shift_rows(ciphertext);
+     dc2:	19 82       	std	Y+1, r1	; 0x01
+     dc4:	1f c0       	rjmp	.+62     	; 0xe04 <aes_encrypt_128+0x3da>
+    for ( i = (uint8_t)0; i < (uint8_t)AES_BLOCK_SIZE; ++i ) {
+     dc6:	89 81       	ldd	r24, Y+1	; 0x01
+     dc8:	88 2f       	mov	r24, r24
+     dca:	90 e0       	ldi	r25, 0x00	; 0
+     dcc:	28 8d       	ldd	r18, Y+24	; 0x18
+     dce:	39 8d       	ldd	r19, Y+25	; 0x19
+     dd0:	82 0f       	add	r24, r18
+     dd2:	93 1f       	adc	r25, r19
+     dd4:	29 81       	ldd	r18, Y+1	; 0x01
+     dd6:	22 2f       	mov	r18, r18
+     dd8:	30 e0       	ldi	r19, 0x00	; 0
+     dda:	48 8d       	ldd	r20, Y+24	; 0x18
+     ddc:	59 8d       	ldd	r21, Y+25	; 0x19
+     dde:	24 0f       	add	r18, r20
+     de0:	35 1f       	adc	r19, r21
+     de2:	f9 01       	movw	r30, r18
+     de4:	40 81       	ld	r20, Z
+     de6:	2c 89       	ldd	r18, Y+20	; 0x14
+     de8:	3d 89       	ldd	r19, Y+21	; 0x15
+     dea:	f9 01       	movw	r30, r18
+     dec:	20 81       	ld	r18, Z
+     dee:	24 27       	eor	r18, r20
+     df0:	fc 01       	movw	r30, r24
+     df2:	20 83       	st	Z, r18
+        ciphertext[i] ^= *roundkeys;
+     df4:	8c 89       	ldd	r24, Y+20	; 0x14
+     df6:	9d 89       	ldd	r25, Y+21	; 0x15
+     df8:	01 96       	adiw	r24, 0x01	; 1
+     dfa:	9d 8b       	std	Y+21, r25	; 0x15
+     dfc:	8c 8b       	std	Y+20, r24	; 0x14
+    /* last round*/
+    for ( i = (uint8_t)AES_BLOCK_SIZE-(uint8_t)1;i !=(uint8_t)0;i--) {
+        ciphertext[i] = SBOX[ciphertext[i]];
+    }
+	 ciphertext[0] = SBOX[ciphertext[0]];
+    shift_rows(ciphertext);
+     dfe:	89 81       	ldd	r24, Y+1	; 0x01
+     e00:	8f 5f       	subi	r24, 0xFF	; 255
+     e02:	89 83       	std	Y+1, r24	; 0x01
+     e04:	89 81       	ldd	r24, Y+1	; 0x01
+     e06:	80 31       	cpi	r24, 0x10	; 16
+     e08:	f0 f2       	brcs	.-68     	; 0xdc6 <aes_encrypt_128+0x39c>
+    for ( i = (uint8_t)0; i < (uint8_t)AES_BLOCK_SIZE; ++i ) {
+        ciphertext[i] ^= *roundkeys;
+        roundkeys+=1;
+    }
+
+     e0a:	00 00       	nop
+     e0c:	69 96       	adiw	r28, 0x19	; 25
+     e0e:	0f b6       	in	r0, 0x3f	; 63
+     e10:	f8 94       	cli
+     e12:	de bf       	out	0x3e, r29	; 62
+     e14:	0f be       	out	0x3f, r0	; 63
+     e16:	cd bf       	out	0x3d, r28	; 61
+     e18:	df 91       	pop	r29
+     e1a:	cf 91       	pop	r28
+     e1c:	1f 91       	pop	r17
+     e1e:	0f 91       	pop	r16
+     e20:	08 95       	ret
+
+00000e22 <aes_key_schedule_128>:
+#include "aes_encrypt.h"
+/*
+ * round constants
+ */
+
+void aes_key_schedule_128( const uint8_t key[], uint8_t roundkeys[]) { /* declare key & roundkeys as array*/
+     e22:	cf 93       	push	r28
+     e24:	df 93       	push	r29
+     e26:	cd b7       	in	r28, 0x3d	; 61
+     e28:	de b7       	in	r29, 0x3e	; 62
+     e2a:	64 97       	sbiw	r28, 0x14	; 20
+     e2c:	0f b6       	in	r0, 0x3f	; 63
+     e2e:	f8 94       	cli
+     e30:	de bf       	out	0x3e, r29	; 62
+     e32:	0f be       	out	0x3f, r0	; 63
+     e34:	cd bf       	out	0x3d, r28	; 61
+     e36:	9a 8b       	std	Y+18, r25	; 0x12
+     e38:	89 8b       	std	Y+17, r24	; 0x11
+     e3a:	7c 8b       	std	Y+20, r23	; 0x14
+     e3c:	6b 8b       	std	Y+19, r22	; 0x13
+    const uint8_t  RC[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36}; /* only used in this function so i put it inside that function*/
+     e3e:	8a e0       	ldi	r24, 0x0A	; 10
+     e40:	e0 e0       	ldi	r30, 0x00	; 0
+     e42:	f3 e0       	ldi	r31, 0x03	; 3
+     e44:	de 01       	movw	r26, r28
+     e46:	13 96       	adiw	r26, 0x03	; 3
+     e48:	01 90       	ld	r0, Z+
+     e4a:	0d 92       	st	X+, r0
+     e4c:	8a 95       	dec	r24
+     e4e:	e1 f7       	brne	.-8      	; 0xe48 <aes_key_schedule_128+0x26>
+    uint8_t temp[4];
+    uint8_t i;
+
+    for (i =(uint8_t) 0; i < (uint8_t)16; ++i) { /*casting for 0 & 16 */
+     e50:	19 82       	std	Y+1, r1	; 0x01
+     e52:	15 c0       	rjmp	.+42     	; 0xe7e <aes_key_schedule_128+0x5c>
+        roundkeys[i] = key[i];
+     e54:	89 81       	ldd	r24, Y+1	; 0x01
+     e56:	88 2f       	mov	r24, r24
+     e58:	90 e0       	ldi	r25, 0x00	; 0
+     e5a:	2b 89       	ldd	r18, Y+19	; 0x13
+     e5c:	3c 89       	ldd	r19, Y+20	; 0x14
+     e5e:	82 0f       	add	r24, r18
+     e60:	93 1f       	adc	r25, r19
+     e62:	29 81       	ldd	r18, Y+1	; 0x01
+     e64:	22 2f       	mov	r18, r18
+     e66:	30 e0       	ldi	r19, 0x00	; 0
+     e68:	49 89       	ldd	r20, Y+17	; 0x11
+     e6a:	5a 89       	ldd	r21, Y+18	; 0x12
+     e6c:	24 0f       	add	r18, r20
+     e6e:	35 1f       	adc	r19, r21
+     e70:	f9 01       	movw	r30, r18
+     e72:	20 81       	ld	r18, Z
+     e74:	fc 01       	movw	r30, r24
+     e76:	20 83       	st	Z, r18
+void aes_key_schedule_128( const uint8_t key[], uint8_t roundkeys[]) { /* declare key & roundkeys as array*/
+    const uint8_t  RC[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36}; /* only used in this function so i put it inside that function*/
+    uint8_t temp[4];
+    uint8_t i;
+
+    for (i =(uint8_t) 0; i < (uint8_t)16; ++i) { /*casting for 0 & 16 */
+     e78:	89 81       	ldd	r24, Y+1	; 0x01
+     e7a:	8f 5f       	subi	r24, 0xFF	; 255
+     e7c:	89 83       	std	Y+1, r24	; 0x01
+     e7e:	89 81       	ldd	r24, Y+1	; 0x01
+     e80:	80 31       	cpi	r24, 0x10	; 16
+     e82:	40 f3       	brcs	.-48     	; 0xe54 <aes_key_schedule_128+0x32>
+        roundkeys[i] = key[i];
+
+    }
+
+    uint8_t j=16;
+     e84:	80 e1       	ldi	r24, 0x10	; 16
+     e86:	8a 83       	std	Y+2, r24	; 0x02
+    for (i = (uint8_t)0; i < (uint8_t)AES_ROUNDS; ++i) {
+     e88:	19 82       	std	Y+1, r1	; 0x01
+     e8a:	5c c2       	rjmp	.+1208   	; 0x1344 <aes_key_schedule_128+0x522>
+
+        /* k0-k3 for next round*/
+
+        temp[3] = SBOX[roundkeys[j-(uint8_t)4]];
+     e8c:	8a 81       	ldd	r24, Y+2	; 0x02
+     e8e:	88 2f       	mov	r24, r24
+     e90:	90 e0       	ldi	r25, 0x00	; 0
+     e92:	04 97       	sbiw	r24, 0x04	; 4
+     e94:	2b 89       	ldd	r18, Y+19	; 0x13
+     e96:	3c 89       	ldd	r19, Y+20	; 0x14
+     e98:	82 0f       	add	r24, r18
+     e9a:	93 1f       	adc	r25, r19
+     e9c:	fc 01       	movw	r30, r24
+     e9e:	80 81       	ld	r24, Z
+     ea0:	88 2f       	mov	r24, r24
+     ea2:	90 e0       	ldi	r25, 0x00	; 0
+     ea4:	80 50       	subi	r24, 0x00	; 0
+     ea6:	9f 4f       	sbci	r25, 0xFF	; 255
+     ea8:	fc 01       	movw	r30, r24
+     eaa:	80 81       	ld	r24, Z
+     eac:	88 8b       	std	Y+16, r24	; 0x10
+            temp[0] = SBOX[roundkeys[j-(uint8_t)3]];
+     eae:	8a 81       	ldd	r24, Y+2	; 0x02
+     eb0:	88 2f       	mov	r24, r24
+     eb2:	90 e0       	ldi	r25, 0x00	; 0
+     eb4:	03 97       	sbiw	r24, 0x03	; 3
+     eb6:	2b 89       	ldd	r18, Y+19	; 0x13
+     eb8:	3c 89       	ldd	r19, Y+20	; 0x14
+     eba:	82 0f       	add	r24, r18
+     ebc:	93 1f       	adc	r25, r19
+     ebe:	fc 01       	movw	r30, r24
+     ec0:	80 81       	ld	r24, Z
+     ec2:	88 2f       	mov	r24, r24
+     ec4:	90 e0       	ldi	r25, 0x00	; 0
+     ec6:	80 50       	subi	r24, 0x00	; 0
+     ec8:	9f 4f       	sbci	r25, 0xFF	; 255
+     eca:	fc 01       	movw	r30, r24
+     ecc:	80 81       	ld	r24, Z
+     ece:	8d 87       	std	Y+13, r24	; 0x0d
+            temp[1] = SBOX[roundkeys[j-(uint8_t)2]];
+     ed0:	8a 81       	ldd	r24, Y+2	; 0x02
+     ed2:	88 2f       	mov	r24, r24
+     ed4:	90 e0       	ldi	r25, 0x00	; 0
+     ed6:	02 97       	sbiw	r24, 0x02	; 2
+     ed8:	2b 89       	ldd	r18, Y+19	; 0x13
+     eda:	3c 89       	ldd	r19, Y+20	; 0x14
+     edc:	82 0f       	add	r24, r18
+     ede:	93 1f       	adc	r25, r19
+     ee0:	fc 01       	movw	r30, r24
+     ee2:	80 81       	ld	r24, Z
+     ee4:	88 2f       	mov	r24, r24
+     ee6:	90 e0       	ldi	r25, 0x00	; 0
+     ee8:	80 50       	subi	r24, 0x00	; 0
+     eea:	9f 4f       	sbci	r25, 0xFF	; 255
+     eec:	fc 01       	movw	r30, r24
+     eee:	80 81       	ld	r24, Z
+     ef0:	8e 87       	std	Y+14, r24	; 0x0e
+            temp[2] = SBOX[roundkeys[j-(uint8_t)1]];
+     ef2:	8a 81       	ldd	r24, Y+2	; 0x02
+     ef4:	88 2f       	mov	r24, r24
+     ef6:	90 e0       	ldi	r25, 0x00	; 0
+     ef8:	01 97       	sbiw	r24, 0x01	; 1
+     efa:	2b 89       	ldd	r18, Y+19	; 0x13
+     efc:	3c 89       	ldd	r19, Y+20	; 0x14
+     efe:	82 0f       	add	r24, r18
+     f00:	93 1f       	adc	r25, r19
+     f02:	fc 01       	movw	r30, r24
+     f04:	80 81       	ld	r24, Z
+     f06:	88 2f       	mov	r24, r24
+     f08:	90 e0       	ldi	r25, 0x00	; 0
+     f0a:	80 50       	subi	r24, 0x00	; 0
+     f0c:	9f 4f       	sbci	r25, 0xFF	; 255
+     f0e:	fc 01       	movw	r30, r24
+     f10:	80 81       	ld	r24, Z
+     f12:	8f 87       	std	Y+15, r24	; 0x0f
+            temp[0] ^= RC[i];
+     f14:	4d 85       	ldd	r20, Y+13	; 0x0d
+     f16:	89 81       	ldd	r24, Y+1	; 0x01
+     f18:	88 2f       	mov	r24, r24
+     f1a:	90 e0       	ldi	r25, 0x00	; 0
+     f1c:	9e 01       	movw	r18, r28
+     f1e:	2d 5f       	subi	r18, 0xFD	; 253
+     f20:	3f 4f       	sbci	r19, 0xFF	; 255
+     f22:	82 0f       	add	r24, r18
+     f24:	93 1f       	adc	r25, r19
+     f26:	fc 01       	movw	r30, r24
+     f28:	80 81       	ld	r24, Z
+     f2a:	84 27       	eor	r24, r20
+     f2c:	8d 87       	std	Y+13, r24	; 0x0d
+/*            lastround = roundkeys-(uint8_t)16;*/
+            roundkeys[j] = temp[0] ^ roundkeys[j-(uint8_t)16];
+     f2e:	8a 81       	ldd	r24, Y+2	; 0x02
+     f30:	88 2f       	mov	r24, r24
+     f32:	90 e0       	ldi	r25, 0x00	; 0
+     f34:	2b 89       	ldd	r18, Y+19	; 0x13
+     f36:	3c 89       	ldd	r19, Y+20	; 0x14
+     f38:	82 0f       	add	r24, r18
+     f3a:	93 1f       	adc	r25, r19
+     f3c:	6d 85       	ldd	r22, Y+13	; 0x0d
+     f3e:	2a 81       	ldd	r18, Y+2	; 0x02
+     f40:	22 2f       	mov	r18, r18
+     f42:	30 e0       	ldi	r19, 0x00	; 0
+     f44:	20 51       	subi	r18, 0x10	; 16
+     f46:	31 09       	sbc	r19, r1
+     f48:	4b 89       	ldd	r20, Y+19	; 0x13
+     f4a:	5c 89       	ldd	r21, Y+20	; 0x14
+     f4c:	24 0f       	add	r18, r20
+     f4e:	35 1f       	adc	r19, r21
+     f50:	f9 01       	movw	r30, r18
+     f52:	20 81       	ld	r18, Z
+     f54:	26 27       	eor	r18, r22
+     f56:	fc 01       	movw	r30, r24
+     f58:	20 83       	st	Z, r18
+        j++;
+     f5a:	8a 81       	ldd	r24, Y+2	; 0x02
+     f5c:	8f 5f       	subi	r24, 0xFF	; 255
+     f5e:	8a 83       	std	Y+2, r24	; 0x02
+            roundkeys[j] = temp[1] ^ roundkeys[j-(uint8_t)16];
+     f60:	8a 81       	ldd	r24, Y+2	; 0x02
+     f62:	88 2f       	mov	r24, r24
+     f64:	90 e0       	ldi	r25, 0x00	; 0
+     f66:	2b 89       	ldd	r18, Y+19	; 0x13
+     f68:	3c 89       	ldd	r19, Y+20	; 0x14
+     f6a:	82 0f       	add	r24, r18
+     f6c:	93 1f       	adc	r25, r19
+     f6e:	6e 85       	ldd	r22, Y+14	; 0x0e
+     f70:	2a 81       	ldd	r18, Y+2	; 0x02
+     f72:	22 2f       	mov	r18, r18
+     f74:	30 e0       	ldi	r19, 0x00	; 0
+     f76:	20 51       	subi	r18, 0x10	; 16
+     f78:	31 09       	sbc	r19, r1
+     f7a:	4b 89       	ldd	r20, Y+19	; 0x13
+     f7c:	5c 89       	ldd	r21, Y+20	; 0x14
+     f7e:	24 0f       	add	r18, r20
+     f80:	35 1f       	adc	r19, r21
+     f82:	f9 01       	movw	r30, r18
+     f84:	20 81       	ld	r18, Z
+     f86:	26 27       	eor	r18, r22
+     f88:	fc 01       	movw	r30, r24
+     f8a:	20 83       	st	Z, r18
+            j++;
+     f8c:	8a 81       	ldd	r24, Y+2	; 0x02
+     f8e:	8f 5f       	subi	r24, 0xFF	; 255
+     f90:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = temp[2] ^ roundkeys[j-(uint8_t)16];
+     f92:	8a 81       	ldd	r24, Y+2	; 0x02
+     f94:	88 2f       	mov	r24, r24
+     f96:	90 e0       	ldi	r25, 0x00	; 0
+     f98:	2b 89       	ldd	r18, Y+19	; 0x13
+     f9a:	3c 89       	ldd	r19, Y+20	; 0x14
+     f9c:	82 0f       	add	r24, r18
+     f9e:	93 1f       	adc	r25, r19
+     fa0:	6f 85       	ldd	r22, Y+15	; 0x0f
+     fa2:	2a 81       	ldd	r18, Y+2	; 0x02
+     fa4:	22 2f       	mov	r18, r18
+     fa6:	30 e0       	ldi	r19, 0x00	; 0
+     fa8:	20 51       	subi	r18, 0x10	; 16
+     faa:	31 09       	sbc	r19, r1
+     fac:	4b 89       	ldd	r20, Y+19	; 0x13
+     fae:	5c 89       	ldd	r21, Y+20	; 0x14
+     fb0:	24 0f       	add	r18, r20
+     fb2:	35 1f       	adc	r19, r21
+     fb4:	f9 01       	movw	r30, r18
+     fb6:	20 81       	ld	r18, Z
+     fb8:	26 27       	eor	r18, r22
+     fba:	fc 01       	movw	r30, r24
+     fbc:	20 83       	st	Z, r18
+            j++;
+     fbe:	8a 81       	ldd	r24, Y+2	; 0x02
+     fc0:	8f 5f       	subi	r24, 0xFF	; 255
+     fc2:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = temp[3] ^ roundkeys[j-(uint8_t)16];
+     fc4:	8a 81       	ldd	r24, Y+2	; 0x02
+     fc6:	88 2f       	mov	r24, r24
+     fc8:	90 e0       	ldi	r25, 0x00	; 0
+     fca:	2b 89       	ldd	r18, Y+19	; 0x13
+     fcc:	3c 89       	ldd	r19, Y+20	; 0x14
+     fce:	82 0f       	add	r24, r18
+     fd0:	93 1f       	adc	r25, r19
+     fd2:	68 89       	ldd	r22, Y+16	; 0x10
+     fd4:	2a 81       	ldd	r18, Y+2	; 0x02
+     fd6:	22 2f       	mov	r18, r18
+     fd8:	30 e0       	ldi	r19, 0x00	; 0
+     fda:	20 51       	subi	r18, 0x10	; 16
+     fdc:	31 09       	sbc	r19, r1
+     fde:	4b 89       	ldd	r20, Y+19	; 0x13
+     fe0:	5c 89       	ldd	r21, Y+20	; 0x14
+     fe2:	24 0f       	add	r18, r20
+     fe4:	35 1f       	adc	r19, r21
+     fe6:	f9 01       	movw	r30, r18
+     fe8:	20 81       	ld	r18, Z
+     fea:	26 27       	eor	r18, r22
+     fec:	fc 01       	movw	r30, r24
+     fee:	20 83       	st	Z, r18
+            j++;
+     ff0:	8a 81       	ldd	r24, Y+2	; 0x02
+     ff2:	8f 5f       	subi	r24, 0xFF	; 255
+     ff4:	8a 83       	std	Y+2, r24	; 0x02
+        /* k4-k7 for next round*/
+            roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+     ff6:	8a 81       	ldd	r24, Y+2	; 0x02
+     ff8:	88 2f       	mov	r24, r24
+     ffa:	90 e0       	ldi	r25, 0x00	; 0
+     ffc:	2b 89       	ldd	r18, Y+19	; 0x13
+     ffe:	3c 89       	ldd	r19, Y+20	; 0x14
+    1000:	82 0f       	add	r24, r18
+    1002:	93 1f       	adc	r25, r19
+    1004:	2a 81       	ldd	r18, Y+2	; 0x02
+    1006:	22 2f       	mov	r18, r18
+    1008:	30 e0       	ldi	r19, 0x00	; 0
+    100a:	24 50       	subi	r18, 0x04	; 4
+    100c:	31 09       	sbc	r19, r1
+    100e:	4b 89       	ldd	r20, Y+19	; 0x13
+    1010:	5c 89       	ldd	r21, Y+20	; 0x14
+    1012:	24 0f       	add	r18, r20
+    1014:	35 1f       	adc	r19, r21
+    1016:	f9 01       	movw	r30, r18
+    1018:	60 81       	ld	r22, Z
+    101a:	2a 81       	ldd	r18, Y+2	; 0x02
+    101c:	22 2f       	mov	r18, r18
+    101e:	30 e0       	ldi	r19, 0x00	; 0
+    1020:	20 51       	subi	r18, 0x10	; 16
+    1022:	31 09       	sbc	r19, r1
+    1024:	4b 89       	ldd	r20, Y+19	; 0x13
+    1026:	5c 89       	ldd	r21, Y+20	; 0x14
+    1028:	24 0f       	add	r18, r20
+    102a:	35 1f       	adc	r19, r21
+    102c:	f9 01       	movw	r30, r18
+    102e:	20 81       	ld	r18, Z
+    1030:	26 27       	eor	r18, r22
+    1032:	fc 01       	movw	r30, r24
+    1034:	20 83       	st	Z, r18
+        j++;
+    1036:	8a 81       	ldd	r24, Y+2	; 0x02
+    1038:	8f 5f       	subi	r24, 0xFF	; 255
+    103a:	8a 83       	std	Y+2, r24	; 0x02
+            roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    103c:	8a 81       	ldd	r24, Y+2	; 0x02
+    103e:	88 2f       	mov	r24, r24
+    1040:	90 e0       	ldi	r25, 0x00	; 0
+    1042:	2b 89       	ldd	r18, Y+19	; 0x13
+    1044:	3c 89       	ldd	r19, Y+20	; 0x14
+    1046:	82 0f       	add	r24, r18
+    1048:	93 1f       	adc	r25, r19
+    104a:	2a 81       	ldd	r18, Y+2	; 0x02
+    104c:	22 2f       	mov	r18, r18
+    104e:	30 e0       	ldi	r19, 0x00	; 0
+    1050:	24 50       	subi	r18, 0x04	; 4
+    1052:	31 09       	sbc	r19, r1
+    1054:	4b 89       	ldd	r20, Y+19	; 0x13
+    1056:	5c 89       	ldd	r21, Y+20	; 0x14
+    1058:	24 0f       	add	r18, r20
+    105a:	35 1f       	adc	r19, r21
+    105c:	f9 01       	movw	r30, r18
+    105e:	60 81       	ld	r22, Z
+    1060:	2a 81       	ldd	r18, Y+2	; 0x02
+    1062:	22 2f       	mov	r18, r18
+    1064:	30 e0       	ldi	r19, 0x00	; 0
+    1066:	20 51       	subi	r18, 0x10	; 16
+    1068:	31 09       	sbc	r19, r1
+    106a:	4b 89       	ldd	r20, Y+19	; 0x13
+    106c:	5c 89       	ldd	r21, Y+20	; 0x14
+    106e:	24 0f       	add	r18, r20
+    1070:	35 1f       	adc	r19, r21
+    1072:	f9 01       	movw	r30, r18
+    1074:	20 81       	ld	r18, Z
+    1076:	26 27       	eor	r18, r22
+    1078:	fc 01       	movw	r30, r24
+    107a:	20 83       	st	Z, r18
+            j++;
+    107c:	8a 81       	ldd	r24, Y+2	; 0x02
+    107e:	8f 5f       	subi	r24, 0xFF	; 255
+    1080:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    1082:	8a 81       	ldd	r24, Y+2	; 0x02
+    1084:	88 2f       	mov	r24, r24
+    1086:	90 e0       	ldi	r25, 0x00	; 0
+    1088:	2b 89       	ldd	r18, Y+19	; 0x13
+    108a:	3c 89       	ldd	r19, Y+20	; 0x14
+    108c:	82 0f       	add	r24, r18
+    108e:	93 1f       	adc	r25, r19
+    1090:	2a 81       	ldd	r18, Y+2	; 0x02
+    1092:	22 2f       	mov	r18, r18
+    1094:	30 e0       	ldi	r19, 0x00	; 0
+    1096:	24 50       	subi	r18, 0x04	; 4
+    1098:	31 09       	sbc	r19, r1
+    109a:	4b 89       	ldd	r20, Y+19	; 0x13
+    109c:	5c 89       	ldd	r21, Y+20	; 0x14
+    109e:	24 0f       	add	r18, r20
+    10a0:	35 1f       	adc	r19, r21
+    10a2:	f9 01       	movw	r30, r18
+    10a4:	60 81       	ld	r22, Z
+    10a6:	2a 81       	ldd	r18, Y+2	; 0x02
+    10a8:	22 2f       	mov	r18, r18
+    10aa:	30 e0       	ldi	r19, 0x00	; 0
+    10ac:	20 51       	subi	r18, 0x10	; 16
+    10ae:	31 09       	sbc	r19, r1
+    10b0:	4b 89       	ldd	r20, Y+19	; 0x13
+    10b2:	5c 89       	ldd	r21, Y+20	; 0x14
+    10b4:	24 0f       	add	r18, r20
+    10b6:	35 1f       	adc	r19, r21
+    10b8:	f9 01       	movw	r30, r18
+    10ba:	20 81       	ld	r18, Z
+    10bc:	26 27       	eor	r18, r22
+    10be:	fc 01       	movw	r30, r24
+    10c0:	20 83       	st	Z, r18
+            j++;
+    10c2:	8a 81       	ldd	r24, Y+2	; 0x02
+    10c4:	8f 5f       	subi	r24, 0xFF	; 255
+    10c6:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    10c8:	8a 81       	ldd	r24, Y+2	; 0x02
+    10ca:	88 2f       	mov	r24, r24
+    10cc:	90 e0       	ldi	r25, 0x00	; 0
+    10ce:	2b 89       	ldd	r18, Y+19	; 0x13
+    10d0:	3c 89       	ldd	r19, Y+20	; 0x14
+    10d2:	82 0f       	add	r24, r18
+    10d4:	93 1f       	adc	r25, r19
+    10d6:	2a 81       	ldd	r18, Y+2	; 0x02
+    10d8:	22 2f       	mov	r18, r18
+    10da:	30 e0       	ldi	r19, 0x00	; 0
+    10dc:	24 50       	subi	r18, 0x04	; 4
+    10de:	31 09       	sbc	r19, r1
+    10e0:	4b 89       	ldd	r20, Y+19	; 0x13
+    10e2:	5c 89       	ldd	r21, Y+20	; 0x14
+    10e4:	24 0f       	add	r18, r20
+    10e6:	35 1f       	adc	r19, r21
+    10e8:	f9 01       	movw	r30, r18
+    10ea:	60 81       	ld	r22, Z
+    10ec:	2a 81       	ldd	r18, Y+2	; 0x02
+    10ee:	22 2f       	mov	r18, r18
+    10f0:	30 e0       	ldi	r19, 0x00	; 0
+    10f2:	20 51       	subi	r18, 0x10	; 16
+    10f4:	31 09       	sbc	r19, r1
+    10f6:	4b 89       	ldd	r20, Y+19	; 0x13
+    10f8:	5c 89       	ldd	r21, Y+20	; 0x14
+    10fa:	24 0f       	add	r18, r20
+    10fc:	35 1f       	adc	r19, r21
+    10fe:	f9 01       	movw	r30, r18
+    1100:	20 81       	ld	r18, Z
+    1102:	26 27       	eor	r18, r22
+    1104:	fc 01       	movw	r30, r24
+    1106:	20 83       	st	Z, r18
+            j++;
+    1108:	8a 81       	ldd	r24, Y+2	; 0x02
+    110a:	8f 5f       	subi	r24, 0xFF	; 255
+    110c:	8a 83       	std	Y+2, r24	; 0x02
+        /* k8-k11 for next round*/
+            roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    110e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1110:	88 2f       	mov	r24, r24
+    1112:	90 e0       	ldi	r25, 0x00	; 0
+    1114:	2b 89       	ldd	r18, Y+19	; 0x13
+    1116:	3c 89       	ldd	r19, Y+20	; 0x14
+    1118:	82 0f       	add	r24, r18
+    111a:	93 1f       	adc	r25, r19
+    111c:	2a 81       	ldd	r18, Y+2	; 0x02
+    111e:	22 2f       	mov	r18, r18
+    1120:	30 e0       	ldi	r19, 0x00	; 0
+    1122:	24 50       	subi	r18, 0x04	; 4
+    1124:	31 09       	sbc	r19, r1
+    1126:	4b 89       	ldd	r20, Y+19	; 0x13
+    1128:	5c 89       	ldd	r21, Y+20	; 0x14
+    112a:	24 0f       	add	r18, r20
+    112c:	35 1f       	adc	r19, r21
+    112e:	f9 01       	movw	r30, r18
+    1130:	60 81       	ld	r22, Z
+    1132:	2a 81       	ldd	r18, Y+2	; 0x02
+    1134:	22 2f       	mov	r18, r18
+    1136:	30 e0       	ldi	r19, 0x00	; 0
+    1138:	20 51       	subi	r18, 0x10	; 16
+    113a:	31 09       	sbc	r19, r1
+    113c:	4b 89       	ldd	r20, Y+19	; 0x13
+    113e:	5c 89       	ldd	r21, Y+20	; 0x14
+    1140:	24 0f       	add	r18, r20
+    1142:	35 1f       	adc	r19, r21
+    1144:	f9 01       	movw	r30, r18
+    1146:	20 81       	ld	r18, Z
+    1148:	26 27       	eor	r18, r22
+    114a:	fc 01       	movw	r30, r24
+    114c:	20 83       	st	Z, r18
+            j++;
+    114e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1150:	8f 5f       	subi	r24, 0xFF	; 255
+    1152:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    1154:	8a 81       	ldd	r24, Y+2	; 0x02
+    1156:	88 2f       	mov	r24, r24
+    1158:	90 e0       	ldi	r25, 0x00	; 0
+    115a:	2b 89       	ldd	r18, Y+19	; 0x13
+    115c:	3c 89       	ldd	r19, Y+20	; 0x14
+    115e:	82 0f       	add	r24, r18
+    1160:	93 1f       	adc	r25, r19
+    1162:	2a 81       	ldd	r18, Y+2	; 0x02
+    1164:	22 2f       	mov	r18, r18
+    1166:	30 e0       	ldi	r19, 0x00	; 0
+    1168:	24 50       	subi	r18, 0x04	; 4
+    116a:	31 09       	sbc	r19, r1
+    116c:	4b 89       	ldd	r20, Y+19	; 0x13
+    116e:	5c 89       	ldd	r21, Y+20	; 0x14
+    1170:	24 0f       	add	r18, r20
+    1172:	35 1f       	adc	r19, r21
+    1174:	f9 01       	movw	r30, r18
+    1176:	60 81       	ld	r22, Z
+    1178:	2a 81       	ldd	r18, Y+2	; 0x02
+    117a:	22 2f       	mov	r18, r18
+    117c:	30 e0       	ldi	r19, 0x00	; 0
+    117e:	20 51       	subi	r18, 0x10	; 16
+    1180:	31 09       	sbc	r19, r1
+    1182:	4b 89       	ldd	r20, Y+19	; 0x13
+    1184:	5c 89       	ldd	r21, Y+20	; 0x14
+    1186:	24 0f       	add	r18, r20
+    1188:	35 1f       	adc	r19, r21
+    118a:	f9 01       	movw	r30, r18
+    118c:	20 81       	ld	r18, Z
+    118e:	26 27       	eor	r18, r22
+    1190:	fc 01       	movw	r30, r24
+    1192:	20 83       	st	Z, r18
+            j++;
+    1194:	8a 81       	ldd	r24, Y+2	; 0x02
+    1196:	8f 5f       	subi	r24, 0xFF	; 255
+    1198:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    119a:	8a 81       	ldd	r24, Y+2	; 0x02
+    119c:	88 2f       	mov	r24, r24
+    119e:	90 e0       	ldi	r25, 0x00	; 0
+    11a0:	2b 89       	ldd	r18, Y+19	; 0x13
+    11a2:	3c 89       	ldd	r19, Y+20	; 0x14
+    11a4:	82 0f       	add	r24, r18
+    11a6:	93 1f       	adc	r25, r19
+    11a8:	2a 81       	ldd	r18, Y+2	; 0x02
+    11aa:	22 2f       	mov	r18, r18
+    11ac:	30 e0       	ldi	r19, 0x00	; 0
+    11ae:	24 50       	subi	r18, 0x04	; 4
+    11b0:	31 09       	sbc	r19, r1
+    11b2:	4b 89       	ldd	r20, Y+19	; 0x13
+    11b4:	5c 89       	ldd	r21, Y+20	; 0x14
+    11b6:	24 0f       	add	r18, r20
+    11b8:	35 1f       	adc	r19, r21
+    11ba:	f9 01       	movw	r30, r18
+    11bc:	60 81       	ld	r22, Z
+    11be:	2a 81       	ldd	r18, Y+2	; 0x02
+    11c0:	22 2f       	mov	r18, r18
+    11c2:	30 e0       	ldi	r19, 0x00	; 0
+    11c4:	20 51       	subi	r18, 0x10	; 16
+    11c6:	31 09       	sbc	r19, r1
+    11c8:	4b 89       	ldd	r20, Y+19	; 0x13
+    11ca:	5c 89       	ldd	r21, Y+20	; 0x14
+    11cc:	24 0f       	add	r18, r20
+    11ce:	35 1f       	adc	r19, r21
+    11d0:	f9 01       	movw	r30, r18
+    11d2:	20 81       	ld	r18, Z
+    11d4:	26 27       	eor	r18, r22
+    11d6:	fc 01       	movw	r30, r24
+    11d8:	20 83       	st	Z, r18
+            j++;
+    11da:	8a 81       	ldd	r24, Y+2	; 0x02
+    11dc:	8f 5f       	subi	r24, 0xFF	; 255
+    11de:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    11e0:	8a 81       	ldd	r24, Y+2	; 0x02
+    11e2:	88 2f       	mov	r24, r24
+    11e4:	90 e0       	ldi	r25, 0x00	; 0
+    11e6:	2b 89       	ldd	r18, Y+19	; 0x13
+    11e8:	3c 89       	ldd	r19, Y+20	; 0x14
+    11ea:	82 0f       	add	r24, r18
+    11ec:	93 1f       	adc	r25, r19
+    11ee:	2a 81       	ldd	r18, Y+2	; 0x02
+    11f0:	22 2f       	mov	r18, r18
+    11f2:	30 e0       	ldi	r19, 0x00	; 0
+    11f4:	24 50       	subi	r18, 0x04	; 4
+    11f6:	31 09       	sbc	r19, r1
+    11f8:	4b 89       	ldd	r20, Y+19	; 0x13
+    11fa:	5c 89       	ldd	r21, Y+20	; 0x14
+    11fc:	24 0f       	add	r18, r20
+    11fe:	35 1f       	adc	r19, r21
+    1200:	f9 01       	movw	r30, r18
+    1202:	60 81       	ld	r22, Z
+    1204:	2a 81       	ldd	r18, Y+2	; 0x02
+    1206:	22 2f       	mov	r18, r18
+    1208:	30 e0       	ldi	r19, 0x00	; 0
+    120a:	20 51       	subi	r18, 0x10	; 16
+    120c:	31 09       	sbc	r19, r1
+    120e:	4b 89       	ldd	r20, Y+19	; 0x13
+    1210:	5c 89       	ldd	r21, Y+20	; 0x14
+    1212:	24 0f       	add	r18, r20
+    1214:	35 1f       	adc	r19, r21
+    1216:	f9 01       	movw	r30, r18
+    1218:	20 81       	ld	r18, Z
+    121a:	26 27       	eor	r18, r22
+    121c:	fc 01       	movw	r30, r24
+    121e:	20 83       	st	Z, r18
+            j++;
+    1220:	8a 81       	ldd	r24, Y+2	; 0x02
+    1222:	8f 5f       	subi	r24, 0xFF	; 255
+    1224:	8a 83       	std	Y+2, r24	; 0x02
+        /* k12-k15 for next round*/
+            roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    1226:	8a 81       	ldd	r24, Y+2	; 0x02
+    1228:	88 2f       	mov	r24, r24
+    122a:	90 e0       	ldi	r25, 0x00	; 0
+    122c:	2b 89       	ldd	r18, Y+19	; 0x13
+    122e:	3c 89       	ldd	r19, Y+20	; 0x14
+    1230:	82 0f       	add	r24, r18
+    1232:	93 1f       	adc	r25, r19
+    1234:	2a 81       	ldd	r18, Y+2	; 0x02
+    1236:	22 2f       	mov	r18, r18
+    1238:	30 e0       	ldi	r19, 0x00	; 0
+    123a:	24 50       	subi	r18, 0x04	; 4
+    123c:	31 09       	sbc	r19, r1
+    123e:	4b 89       	ldd	r20, Y+19	; 0x13
+    1240:	5c 89       	ldd	r21, Y+20	; 0x14
+    1242:	24 0f       	add	r18, r20
+    1244:	35 1f       	adc	r19, r21
+    1246:	f9 01       	movw	r30, r18
+    1248:	60 81       	ld	r22, Z
+    124a:	2a 81       	ldd	r18, Y+2	; 0x02
+    124c:	22 2f       	mov	r18, r18
+    124e:	30 e0       	ldi	r19, 0x00	; 0
+    1250:	20 51       	subi	r18, 0x10	; 16
+    1252:	31 09       	sbc	r19, r1
+    1254:	4b 89       	ldd	r20, Y+19	; 0x13
+    1256:	5c 89       	ldd	r21, Y+20	; 0x14
+    1258:	24 0f       	add	r18, r20
+    125a:	35 1f       	adc	r19, r21
+    125c:	f9 01       	movw	r30, r18
+    125e:	20 81       	ld	r18, Z
+    1260:	26 27       	eor	r18, r22
+    1262:	fc 01       	movw	r30, r24
+    1264:	20 83       	st	Z, r18
+            j++;
+    1266:	8a 81       	ldd	r24, Y+2	; 0x02
+    1268:	8f 5f       	subi	r24, 0xFF	; 255
+    126a:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    126c:	8a 81       	ldd	r24, Y+2	; 0x02
+    126e:	88 2f       	mov	r24, r24
+    1270:	90 e0       	ldi	r25, 0x00	; 0
+    1272:	2b 89       	ldd	r18, Y+19	; 0x13
+    1274:	3c 89       	ldd	r19, Y+20	; 0x14
+    1276:	82 0f       	add	r24, r18
+    1278:	93 1f       	adc	r25, r19
+    127a:	2a 81       	ldd	r18, Y+2	; 0x02
+    127c:	22 2f       	mov	r18, r18
+    127e:	30 e0       	ldi	r19, 0x00	; 0
+    1280:	24 50       	subi	r18, 0x04	; 4
+    1282:	31 09       	sbc	r19, r1
+    1284:	4b 89       	ldd	r20, Y+19	; 0x13
+    1286:	5c 89       	ldd	r21, Y+20	; 0x14
+    1288:	24 0f       	add	r18, r20
+    128a:	35 1f       	adc	r19, r21
+    128c:	f9 01       	movw	r30, r18
+    128e:	60 81       	ld	r22, Z
+    1290:	2a 81       	ldd	r18, Y+2	; 0x02
+    1292:	22 2f       	mov	r18, r18
+    1294:	30 e0       	ldi	r19, 0x00	; 0
+    1296:	20 51       	subi	r18, 0x10	; 16
+    1298:	31 09       	sbc	r19, r1
+    129a:	4b 89       	ldd	r20, Y+19	; 0x13
+    129c:	5c 89       	ldd	r21, Y+20	; 0x14
+    129e:	24 0f       	add	r18, r20
+    12a0:	35 1f       	adc	r19, r21
+    12a2:	f9 01       	movw	r30, r18
+    12a4:	20 81       	ld	r18, Z
+    12a6:	26 27       	eor	r18, r22
+    12a8:	fc 01       	movw	r30, r24
+    12aa:	20 83       	st	Z, r18
+            j++;
+    12ac:	8a 81       	ldd	r24, Y+2	; 0x02
+    12ae:	8f 5f       	subi	r24, 0xFF	; 255
+    12b0:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    12b2:	8a 81       	ldd	r24, Y+2	; 0x02
+    12b4:	88 2f       	mov	r24, r24
+    12b6:	90 e0       	ldi	r25, 0x00	; 0
+    12b8:	2b 89       	ldd	r18, Y+19	; 0x13
+    12ba:	3c 89       	ldd	r19, Y+20	; 0x14
+    12bc:	82 0f       	add	r24, r18
+    12be:	93 1f       	adc	r25, r19
+    12c0:	2a 81       	ldd	r18, Y+2	; 0x02
+    12c2:	22 2f       	mov	r18, r18
+    12c4:	30 e0       	ldi	r19, 0x00	; 0
+    12c6:	24 50       	subi	r18, 0x04	; 4
+    12c8:	31 09       	sbc	r19, r1
+    12ca:	4b 89       	ldd	r20, Y+19	; 0x13
+    12cc:	5c 89       	ldd	r21, Y+20	; 0x14
+    12ce:	24 0f       	add	r18, r20
+    12d0:	35 1f       	adc	r19, r21
+    12d2:	f9 01       	movw	r30, r18
+    12d4:	60 81       	ld	r22, Z
+    12d6:	2a 81       	ldd	r18, Y+2	; 0x02
+    12d8:	22 2f       	mov	r18, r18
+    12da:	30 e0       	ldi	r19, 0x00	; 0
+    12dc:	20 51       	subi	r18, 0x10	; 16
+    12de:	31 09       	sbc	r19, r1
+    12e0:	4b 89       	ldd	r20, Y+19	; 0x13
+    12e2:	5c 89       	ldd	r21, Y+20	; 0x14
+    12e4:	24 0f       	add	r18, r20
+    12e6:	35 1f       	adc	r19, r21
+    12e8:	f9 01       	movw	r30, r18
+    12ea:	20 81       	ld	r18, Z
+    12ec:	26 27       	eor	r18, r22
+    12ee:	fc 01       	movw	r30, r24
+    12f0:	20 83       	st	Z, r18
+            j++;
+    12f2:	8a 81       	ldd	r24, Y+2	; 0x02
+    12f4:	8f 5f       	subi	r24, 0xFF	; 255
+    12f6:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+    12f8:	8a 81       	ldd	r24, Y+2	; 0x02
+    12fa:	88 2f       	mov	r24, r24
+    12fc:	90 e0       	ldi	r25, 0x00	; 0
+    12fe:	2b 89       	ldd	r18, Y+19	; 0x13
+    1300:	3c 89       	ldd	r19, Y+20	; 0x14
+    1302:	82 0f       	add	r24, r18
+    1304:	93 1f       	adc	r25, r19
+    1306:	2a 81       	ldd	r18, Y+2	; 0x02
+    1308:	22 2f       	mov	r18, r18
+    130a:	30 e0       	ldi	r19, 0x00	; 0
+    130c:	24 50       	subi	r18, 0x04	; 4
+    130e:	31 09       	sbc	r19, r1
+    1310:	4b 89       	ldd	r20, Y+19	; 0x13
+    1312:	5c 89       	ldd	r21, Y+20	; 0x14
+    1314:	24 0f       	add	r18, r20
+    1316:	35 1f       	adc	r19, r21
+    1318:	f9 01       	movw	r30, r18
+    131a:	60 81       	ld	r22, Z
+    131c:	2a 81       	ldd	r18, Y+2	; 0x02
+    131e:	22 2f       	mov	r18, r18
+    1320:	30 e0       	ldi	r19, 0x00	; 0
+    1322:	20 51       	subi	r18, 0x10	; 16
+    1324:	31 09       	sbc	r19, r1
+    1326:	4b 89       	ldd	r20, Y+19	; 0x13
+    1328:	5c 89       	ldd	r21, Y+20	; 0x14
+    132a:	24 0f       	add	r18, r20
+    132c:	35 1f       	adc	r19, r21
+    132e:	f9 01       	movw	r30, r18
+    1330:	20 81       	ld	r18, Z
+    1332:	26 27       	eor	r18, r22
+    1334:	fc 01       	movw	r30, r24
+    1336:	20 83       	st	Z, r18
+            j++;
+    1338:	8a 81       	ldd	r24, Y+2	; 0x02
+    133a:	8f 5f       	subi	r24, 0xFF	; 255
+    133c:	8a 83       	std	Y+2, r24	; 0x02
+        roundkeys[i] = key[i];
+
+    }
+
+    uint8_t j=16;
+    for (i = (uint8_t)0; i < (uint8_t)AES_ROUNDS; ++i) {
+    133e:	89 81       	ldd	r24, Y+1	; 0x01
+    1340:	8f 5f       	subi	r24, 0xFF	; 255
+    1342:	89 83       	std	Y+1, r24	; 0x01
+    1344:	89 81       	ldd	r24, Y+1	; 0x01
+    1346:	8a 30       	cpi	r24, 0x0A	; 10
+    1348:	08 f4       	brcc	.+2      	; 0x134c <aes_key_schedule_128+0x52a>
+    134a:	a0 cd       	rjmp	.-1216   	; 0xe8c <aes_key_schedule_128+0x6a>
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+            j++;
+        roundkeys[j] = roundkeys[j-(uint8_t)4] ^ roundkeys[j-(uint8_t)16];
+            j++;
+        }
+    }
+    134c:	00 00       	nop
+    134e:	64 96       	adiw	r28, 0x14	; 20
+    1350:	0f b6       	in	r0, 0x3f	; 63
+    1352:	f8 94       	cli
+    1354:	de bf       	out	0x3e, r29	; 62
+    1356:	0f be       	out	0x3f, r0	; 63
+    1358:	cd bf       	out	0x3d, r28	; 61
+    135a:	df 91       	pop	r29
+    135c:	cf 91       	pop	r28
+    135e:	08 95       	ret
+
+00001360 <main>:
+#include "aes_decrypt.h"
+#include "aes_encrypt.h"
+#include "aes_schedule.h"
+uint8_t main(void);
+
+uint8_t main(void) {
+    1360:	cf 93       	push	r28
+    1362:	df 93       	push	r29
+    1364:	cd b7       	in	r28, 0x3d	; 61
+    1366:	de b7       	in	r29, 0x3e	; 62
+    1368:	c2 5e       	subi	r28, 0xE2	; 226
+    136a:	d1 09       	sbc	r29, r1
+    136c:	0f b6       	in	r0, 0x3f	; 63
+    136e:	f8 94       	cli
+    1370:	de bf       	out	0x3e, r29	; 62
+    1372:	0f be       	out	0x3f, r0	; 63
+    1374:	cd bf       	out	0x3d, r28	; 61
+
+
+    /* 128 bit key */
+
+
+     uint8_t key_test[] = {
+    1376:	80 e1       	ldi	r24, 0x10	; 16
+    1378:	ea e0       	ldi	r30, 0x0A	; 10
+    137a:	f3 e0       	ldi	r31, 0x03	; 3
+    137c:	de 01       	movw	r26, r28
+    137e:	13 96       	adiw	r26, 0x03	; 3
+    1380:	01 90       	ld	r0, Z+
+    1382:	0d 92       	st	X+, r0
+    1384:	8a 95       	dec	r24
+    1386:	e1 f7       	brne	.-8      	; 0x1380 <main+0x20>
+        0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+        0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f,
+
+    };
+
+    uint8_t plaintext_test[] = {
+    1388:	80 e1       	ldi	r24, 0x10	; 16
+    138a:	ea e1       	ldi	r30, 0x1A	; 26
+    138c:	f3 e0       	ldi	r31, 0x03	; 3
+    138e:	de 01       	movw	r26, r28
+    1390:	53 96       	adiw	r26, 0x13	; 19
+    1392:	01 90       	ld	r0, Z+
+    1394:	0d 92       	st	X+, r0
+    1396:	8a 95       	dec	r24
+    1398:	e1 f7       	brne	.-8      	; 0x1392 <main+0x32>
+        0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77,
+        0x88, 0x99, 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff,
+    };
+
+
+     uint8_t ciphertext_test[AES_BLOCK_SIZE]={0}; /* must be initialized*/
+    139a:	20 e1       	ldi	r18, 0x10	; 16
+    139c:	ce 01       	movw	r24, r28
+    139e:	83 96       	adiw	r24, 0x23	; 35
+    13a0:	fc 01       	movw	r30, r24
+    13a2:	32 2f       	mov	r19, r18
+    13a4:	11 92       	st	Z+, r1
+    13a6:	3a 95       	dec	r19
+    13a8:	e9 f7       	brne	.-6      	; 0x13a4 <main+0x44>
+        0x69, 0x34, 0xab, 0x43, 0x64, 0x14, 0x8f, 0xb9,
+        0x69, 0xc4, 0xe0, 0xd8, 0x6a, 0x7b, 0x04, 0x30,
+        0xd8, 0xcd, 0xb7, 0x80, 0x70, 0xb4, 0xc5, 0x5a,
+    };*/
+
+    uint8_t roundkeys_test[AES_ROUND_KEY_SIZE]={0} ;   /* must be initialized*/
+    13aa:	20 eb       	ldi	r18, 0xB0	; 176
+    13ac:	ce 01       	movw	r24, r28
+    13ae:	c3 96       	adiw	r24, 0x33	; 51
+    13b0:	fc 01       	movw	r30, r24
+    13b2:	32 2f       	mov	r19, r18
+    13b4:	11 92       	st	Z+, r1
+    13b6:	3a 95       	dec	r19
+    13b8:	e9 f7       	brne	.-6      	; 0x13b4 <main+0x54>
+
+    /* key schedule */       /* one line comment*/
+    aes_key_schedule_128(key_test, roundkeys_test);
+    13ba:	9e 01       	movw	r18, r28
+    13bc:	2d 5c       	subi	r18, 0xCD	; 205
+    13be:	3f 4f       	sbci	r19, 0xFF	; 255
+    13c0:	ce 01       	movw	r24, r28
+    13c2:	03 96       	adiw	r24, 0x03	; 3
+    13c4:	b9 01       	movw	r22, r18
+    13c6:	0e 94 11 07 	call	0xe22	; 0xe22 <aes_key_schedule_128>
+
+    /* encryption*/          /* one line comment*/
+    aes_encrypt_128(roundkeys_test, plaintext_test, ciphertext_test);
+    13ca:	ae 01       	movw	r20, r28
+    13cc:	4d 5d       	subi	r20, 0xDD	; 221
+    13ce:	5f 4f       	sbci	r21, 0xFF	; 255
+    13d0:	9e 01       	movw	r18, r28
+    13d2:	2d 5e       	subi	r18, 0xED	; 237
+    13d4:	3f 4f       	sbci	r19, 0xFF	; 255
+    13d6:	ce 01       	movw	r24, r28
+    13d8:	c3 96       	adiw	r24, 0x33	; 51
+    13da:	b9 01       	movw	r22, r18
+    13dc:	0e 94 15 05 	call	0xa2a	; 0xa2a <aes_encrypt_128>
+
+    /* decryption*/          /* one line comment*/
+    uint8_t * out = ciphertext_test;
+    13e0:	ce 01       	movw	r24, r28
+    13e2:	83 96       	adiw	r24, 0x23	; 35
+    13e4:	9a 83       	std	Y+2, r25	; 0x02
+    13e6:	89 83       	std	Y+1, r24	; 0x01
+    aes_decrypt_128(roundkeys_test, out, ciphertext_test);
+    13e8:	ae 01       	movw	r20, r28
+    13ea:	4d 5d       	subi	r20, 0xDD	; 221
+    13ec:	5f 4f       	sbci	r21, 0xFF	; 255
+    13ee:	29 81       	ldd	r18, Y+1	; 0x01
+    13f0:	3a 81       	ldd	r19, Y+2	; 0x02
+    13f2:	ce 01       	movw	r24, r28
+    13f4:	c3 96       	adiw	r24, 0x33	; 51
+    13f6:	b9 01       	movw	r22, r18
+    13f8:	0e 94 e7 00 	call	0x1ce	; 0x1ce <aes_decrypt_128>
+
+    return 0u;
+    13fc:	80 e0       	ldi	r24, 0x00	; 0
+}
+    13fe:	ce 51       	subi	r28, 0x1E	; 30
+    1400:	df 4f       	sbci	r29, 0xFF	; 255
+    1402:	0f b6       	in	r0, 0x3f	; 63
+    1404:	f8 94       	cli
+    1406:	de bf       	out	0x3e, r29	; 62
+    1408:	0f be       	out	0x3f, r0	; 63
+    140a:	cd bf       	out	0x3d, r28	; 61
+    140c:	df 91       	pop	r29
+    140e:	cf 91       	pop	r28
+    1410:	08 95       	ret
+
+00001412 <_exit>:
+    1412:	f8 94       	cli
+
+00001414 <__stop_program>:
+    1414:	ff cf       	rjmp	.-2      	; 0x1414 <__stop_program>
