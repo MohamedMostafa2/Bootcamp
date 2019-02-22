@@ -117,6 +117,7 @@ void DIO_WritePin(uint8 PinNum,uint8 PinValue){
 *			I/O : None
 *
 * Return : Value of PinNum
+		   Return 0xFF if PinNum Out Of Range ( 0 - 31 )
 *
 * Description : Get Value of Specific Pin (High/Low)
 *
@@ -145,8 +146,8 @@ uint8 DIO_ReadPin(uint8 PinNum){
     }
     else
 	{
-	     /* Do Nothing */
-		 /* PinNum Out of Range ( 0 - 31 ) */
+	     return ERROR_PIN_NUM ; /* PinNum Out Of Range ( 0 - 31 ) */
+		 
     }
 						
 }
